@@ -1,0 +1,132 @@
+% По умолчанию используется шрифт 14 размера. Если нужен 12-й шрифт, уберите опцию [14pt]
+\documentclass[14pt
+  , russian
+  %, xcolor={svgnames}
+  ]{matmex-diploma-custom}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{tikz}
+\usepackage{wrapfig}
+% \usepackage[kpsewhich,newfloat]{minted}
+% \usemintedstyle{vs}
+\usepackage[inline]{enumitem}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage[nocompress]{cite}
+\usepackage{makecell}
+% \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+% \setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+
+\graphicspath{ {resources/} }
+
+% 
+% % \documentclass 
+% %   [ a4paper        % (Predefined, but who knows...)
+% %   , draft,         % Show bad things.
+% %   , 12pt           % Font size.
+% %   , pagesize,      % Writes the paper size at special areas in DVI or
+% %                    % PDF file. Recommended for use.
+% %   , parskip=half   % Paragraphs: noindent + gap.
+% %   , numbers=enddot % Pointed numbers.
+% %   , BCOR=5mm       % Binding size correction.
+% %   , submission
+% %   , copyright
+% %   , creativecommons 
+% %   ]{eptcs}
+% % \providecommand{\event}{ML 2018}  % Name of the event you are submitting to
+% % \usepackage{breakurl}             % Not needed if you use pdflatex only.
+% 
+% \usepackage{underscore}           % Only needed if you use pdflatex.
+% 
+% \usepackage{booktabs}
+% \usepackage{amssymb}
+% \usepackage{amsmath}
+% \usepackage{mathrsfs}
+% \usepackage{mathtools}
+% \usepackage{multirow}
+% \usepackage{indentfirst}
+% \usepackage{verbatim}
+% \usepackage{amsmath, amssymb}
+% \usepackage{graphicx}
+% \usepackage{xcolor}
+% \usepackage{url}
+% \usepackage{stmaryrd}
+% \usepackage{xspace}
+% \usepackage{comment}
+% \usepackage{wrapfig}
+% \usepackage[caption=false]{subfig}
+% \usepackage{placeins}
+% \usepackage{tabularx}
+% \usepackage{ragged2e}
+% \usepackage{soul}
+\usepackage{csquotes}
+% \usepackage{inconsolata}
+% 
+% \usepackage{polyglossia}   % Babel replacement for XeTeX
+%   \setdefaultlanguage[spelling=modern]{russian}
+%   \setotherlanguage{english}
+% \usepackage{fontspec}    % Provides an automatic and unified interface 
+%                          % for loading fonts.
+% \usepackage{xunicode}    % Generate Unicode chars from accented glyphs.
+% \usepackage{xltxtra}     % "Extras" for LaTeX users of XeTeX.
+% \usepackage{xecyr}       % Help with Russian.
+% 
+% %% Fonts
+% \defaultfontfeatures{Mapping=tex-text}
+% \setmainfont{CMU Serif}
+% \setsansfont{CMU Sans Serif}
+% \setmonofont{CMU Typewriter Text}
+
+\usepackage[final]{listings}
+
+\lstdefinelanguage{ocaml}{
+keywords={@type, function, fun, let, in, match, with, when, class, type,
+nonrec, object, method, of, rec, repeat, until, while, not, do, done, as, val, inherit, and,
+new, module, sig, deriving, datatype, struct, if, then, else, open, private, virtual, include, success, failure,
+lazy, assert, true, false, end},
+sensitive=true,
+commentstyle=\small\itshape\ttfamily,
+keywordstyle=\ttfamily\bfseries, %\underbar,
+identifierstyle=\ttfamily,
+basewidth={0.5em,0.5em},
+columns=fixed,
+fontadjust=true,
+literate={->}{{$\to$}}3 {===}{{$\equiv$}}1 {=/=}{{$\not\equiv$}}1 {|>}{{$\triangleright$}}3 {\\/}{{$\vee$}}2 {/\\}{{$\wedge$}}2 {>=}{{$\ge$}}1 {<=}{{$\le$}} 1,
+morecomment=[s]{(*}{*)}
+}
+
+\lstset{
+mathescape=true,
+%basicstyle=\small,
+identifierstyle=\ttfamily,
+keywordstyle=\bfseries,
+commentstyle=\scriptsize\rmfamily,
+basewidth={0.5em,0.5em},
+fontadjust=true,
+language=ocaml
+}
+ 
+\newcommand{\cd}[1]{\texttt{#1}}
+\newcommand{\inbr}[1]{\left<#1\right>}
+
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+%\sout{Hello World}
+

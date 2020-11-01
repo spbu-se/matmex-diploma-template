@@ -1,0 +1,27 @@
+\input{header.tex}
+
+\begin{document}
+\input{01_Title.tex}
+\maketitle
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+% \begin{abstract}
+%   В курсаче не нужен
+% \end{abstract}
+
+\section{Введение}
+\input{intro.tex}
+
+\section{Постановка задачи}
+\input{task.tex}
+
+\section{Обзор}
+\input{related.tex}
+
+
+% \nocite{*}
+\setmonofont[Mapping=tex-text]{CMU Typewriter Text}
+\bibliographystyle{ugost2008ls}
+\bibliography{vkr}
+\end{document}
