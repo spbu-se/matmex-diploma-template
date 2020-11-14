@@ -8,4 +8,5 @@
 *.toc
 *.pdf
 /.aspell*
+/*.synctex.gz
 
