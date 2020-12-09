@@ -309,7 +309,7 @@
         {
             {\Large\textbf{\textit{\my@title@author@en}}}
             \vskip 1em
-            {\large Qualification work}
+            {\large \ifthenelse{\equal{\my@title@type@en}{master}}{Master's Thesis}{Bachelor's Thesis}}
             \vskip 1em
             {\Huge \@title}
     
