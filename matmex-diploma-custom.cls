@@ -256,12 +256,18 @@
 \fancypagestyle{titleen}{
     \fancyhf{}  % clear all header and footer fields
     \renewcommand{\headrulewidth}{0pt}  % remove head ruler
-    %% В верхнем колонтитуле будет университет и кафедра
+    %% В верхнем колонтитуле будет университет, кафедра и группа, если это курсовая/практика, или просто университет для ВКР
     \chead{\large 
-        Saint Petersburg State University \\ 
-        \vskip 1em
-        {\large \my@title@chair@en \\}
+    Saint Petersburg State University
+    \vskip 1em
+    \ifthenelse{\equal{\my@title@type@en}{bachelor} \OR \equal{\my@title@type@en}{master}}
+    {}
+    {
+      {\large \my@title@chair@en }
+      \vskip 1em
+      {\large Group \my@title@group@en }
     }
+  }
     %% В нижнем колонтитуле город и год
     \cfoot{\large\parbox[b]{\textwidth}{\centering Saint Petersburg\\ \my@title@year@en}}
 }
@@ -269,42 +275,69 @@
 \begin{titlepage}%
 \newgeometry{top=20mm,bottom=20mm,left=20mm,right=15mm,nohead,includeheadfoot}
 \thispagestyle{titleen}
-  \begin{center}
-    \vspace*{0.25\textheight}
-    {\Large\my@title@author@en\\}
-    
-    \vskip 2em
-    {\Huge \@title \\}
-    
-    \vskip 1em
-    {\large 
-    \ifthenelse{\equal{\my@title@type@en}{coursework}}
-    {Course work report}
-    {\ifthenelse{\equal{\my@title@type@en}{practice}}
-    {Internship report}
-    {\ifthenelse{\equal{\my@title@type@en}{prediploma}}
-    {Pre-Diploma Internship report}
-    {\ifthenelse{\equal{\my@title@type@en}{master}}
-    {Master's Thesis}
-    {\ifthenelse{\equal{\my@title@type@en}{bachelor}}
-    {Bachelor's Thesis}
-    }}}}
-    \\}
-    \vskip 2em
-    \ifthenelse{\equal{\my@title@type@en}{practice}}
-    {\normalsize \raggedleft 
-    Scientific supervisor:\\
-    \my@title@supervisorPosition@en\ \my@title@supervisor@en
-    }
-    {\normalsize \raggedleft 
-    \vskip 5em
-    Scientific supervisor:\\
-    \my@title@supervisorPosition@en\ \my@title@supervisor@en\sigspace
+    \begin{center}
 
-    Reviewer:\\
-    \my@title@reviewerPosition@en\ \my@title@reviewer@en
-    }
-  \end{center}
+        \vspace*{0.25\textheight}
+
+        \ifthenelse{\equal{\my@title@type@en}{coursework} \OR \equal{\my@title@type@en}{practice} \OR \equal{\my@title@type@en}{prediploma}}
+        {
+            {\Large\textbf{\textit{\my@title@author@en}}}
+            \vskip 2em
+            {\Huge \@title}
+            \vskip 1em
+            {\large
+                \ifthenelse{\equal{\my@title@type@en}{coursework}}
+                {Coursework}
+                {\ifthenelse{\equal{\my@title@type@en}{practice}}
+                    {Internship report}
+                    {Pre-Diploma practice report}
+                }
+            }\\
+            {\normalsize \raggedleft 
+                \vskip 5em
+                Scientific supervisor:\\
+                \my@title@supervisorPosition@en\ \my@title@supervisor@en\\
+                \ifthenelse{\equal{\my@title@consultant@en}{}}
+                {}
+                {
+                    \vskip 1em
+                    Consultant:\\
+                    \my@title@consultantPosition@en\ \my@title@consultant@en\\
+                }
+            }
+        }
+        {
+            {\Large\textbf{\textit{\my@title@author@en}}}
+            \vskip 1em
+            {\large Qualification work}
+            \vskip 1em
+            {\Huge \@title}
+    
+            \vskip 2em
+            Education level: \ifthenelse{\equal{\my@title@type@en}{master}}{master}{bachelor}
+            
+            \vskip 1em
+    
+            Speciality \textit{\my@title@specialty@en}
+    
+            \vskip 1em
+    
+            Programme \textit{\my@title@programme@en}
+            
+            \vskip 1em
+            
+            \ifthenelse{\equal{\my@title@profile@en}{}}{}{Profile: \underline{\textit{\my@title@profile@en}}}
+    
+            {\normalsize \raggedleft 
+                \vskip 5em
+                Scientific supervisor:\\
+                \my@title@supervisorPosition@en\ \my@title@supervisor@en\\
+                \vskip 1em
+                Reviewer:\\
+                \my@title@reviewerPosition@en\ \my@title@reviewer@en\\
+            }
+        }
+    \end{center}
 \end{titlepage}
 }
 
