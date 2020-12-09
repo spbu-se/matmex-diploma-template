@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{matmex-diploma-custom}[2015/05/28 MatMex LaTeX diploma class]
+\ProvidesClass{matmex-diploma-custom}[2020/12/09 MatMex LaTeX diploma class]
 \def\my@fontsize{12pt}\def\my@baseclass{article}\def\my@title12pt{}\def\my@body14pt{}
 
 % Если используется опция 14pt то нужно несколько хаков
@@ -115,7 +115,7 @@
 \define@key[ru]{mytitle}{chairHeadPosition}{\def\my@title@chairHeadPosition@ru{#1}}
 \define@key[ru]{mytitle}{year}{\def\my@title@year@ru{#1}}
 \define@key[ru]{mytitle}{city}{\def\my@title@city@ru{#1}}
-\define@choicekey*[ru]{mytitle}{type}{diploma,coursework,master,bachelor,vkr}{\def\my@title@type@ru{#1}}
+\define@choicekey*[ru]{mytitle}{type}{prediploma,practice,master,bachelor,vkr}{\def\my@title@type@ru{#1}}
 
 %% Англоязычный вариант
 \define@key[en]{mytitle}{university}{\def\my@title@university@en{#1}}
@@ -133,7 +133,7 @@
 \define@key[en]{mytitle}{chairHeadPosition}{\def\my@title@chairHeadPosition@en{#1}}
 \define@key[en]{mytitle}{year}{\def\my@title@year@en{#1}}
 \define@key[en]{mytitle}{city}{\def\my@title@city@en{#1}}
-\define@choicekey*[en]{mytitle}{type}{diploma,coursework,master,bachelor}{\def\my@title@type@en{#1}}
+\define@choicekey*[en]{mytitle}{type}{prediploma,practice,master,bachelor}{\def\my@title@type@en{#1}}
 
 \newcommand\filltitle[2]{
 %% Значения по умолчанию для обоих языков
@@ -144,7 +144,8 @@
           faculty = {},
           city = {Санкт-Петербург},
           year = {\the\year},
-          type = {diploma}
+          type = {practice},
+          reviewer = {}
         }{}
         }
         {}
@@ -155,7 +156,8 @@
           faculty = {},
           city = {Saint-Petersburg},
           year = {\the\year},
-          type = {diploma}
+          type = {practice},
+          reviewer = {}
         }{}
         }
         {}
@@ -167,12 +169,14 @@
 \fancypagestyle{titleru}{
     \fancyhf{}  % clear all header and footer fields
     \renewcommand{\headrulewidth}{0pt}  % remove head ruler
-    % В верхнем колонтитуле будет университет и кафедра
+    % В верхнем колонтитуле будет университет, кафедра и группа
     \chead{\large 
       \my@title@university@ru 
       \ifthenelse{\equal{\my@title@faculty@ru}{}}{}{\my@title@faculty@ru }
       \vskip 1em
       {\large \my@title@chair@ru }
+      \vskip 1em
+      {\large Группа \my@title@group@ru }
     }
     % В нижнем колонтитуле город и год
     \cfoot{\large\parbox[b]{\textwidth}{\centering \my@title@city@ru\\ \my@title@year@ru}}
@@ -185,47 +189,47 @@
 \begin{center}
     \vspace*{0.25\textheight}
     {\Large\textbf{\textit{\my@title@author@ru}}}
+    \vskip 2em
+    {\Huge \@title}
     \vskip 1em
     {\large 
-    \ifthenelse{\equal{\my@title@type@ru}{coursework}}
-    {Курсовая работа}
-    {\ifthenelse{\equal{\my@title@type@ru}{diploma}}
+    \ifthenelse{\equal{\my@title@type@ru}{practice}}
+    {Отчёт по учебной практике}
+    {\ifthenelse{\equal{\my@title@type@ru}{prediploma}}
     {Отчёт по преддипломной практике}
-    % {\ifthenelse{\equal{\my@title@type@ru}{subdiploma}}
-    % {Отчёт по преддипломной практике}
     {\ifthenelse{\equal{\my@title@type@ru}{master}}
-    {Магистерская диссертация}
+    {Выпускная квалификационная работа магистра}
     {\ifthenelse{\equal{\my@title@type@ru}{bachelor}}
     {Выпускная квалификационная работа бакалавра}
     {\ifthenelse{\equal{\my@title@type@ru}{vkr}}
     {\Large \textbf{Выпускная квалификационная работа}}
     }}}}
     \\}
-    
-    \vskip 2em
-    {\Huge \@title}
 
-    \vskip 2em
-    { Уровень образования:\\Направление \textit{09.06.01 }}
+    % \vskip 2em
+    % { Уровень образования:\\Направление \textit{09.06.01 }}
 
-    \vskip 2em
-    { Основная образовательная программа  \\}
-    \textit{``Информатика и вычислительная техника''}
+    % \vskip 2em
+    % { Основная образовательная программа  \\}
+    % \textit{``Информатика и вычислительная техника''}
 
-    \vskip 2em
-    \ifthenelse{\equal{\my@title@type@ru}{coursework}}
+    \ifthenelse{\equal{\my@title@type@ru}{practice}}
     {\normalsize \raggedleft 
-    Научный руководитель:\\
-    \my@title@supervisorPosition@ru\ \my@title@supervisor@ru\sigspace
-    Консультант:\\% TODO: сделать консультанта опциональным
-    \my@title@reviewerPosition@ru\ \my@title@reviewer@ru
+        \vskip 5em
+        Научный руководитель:\\
+        \my@title@supervisorPosition@ru\ \my@title@supervisor@ru\sigspace
+        \ifthenelse{\equal{\my@title@reviewer@ru}{}}
+        {}
+        {Консультант:\\
+            \my@title@reviewerPosition@ru\ \my@title@reviewer@ru
+        }
     }
     {\normalsize \raggedleft 
-    \vskip 5em
-    Научный руководитель:\\
-    \my@title@supervisorPosition@ru\ \my@title@supervisor@ru\sigspace
-    Рецензент:\\
-    \my@title@reviewerPosition@ru\ \my@title@reviewer@ru
+        \vskip 5em
+        Научный руководитель:\\
+        \my@title@supervisorPosition@ru\ \my@title@supervisor@ru\sigspace
+        Рецензент:\\
+        \my@title@reviewerPosition@ru\ \my@title@reviewer@ru
     }
 \end{center}
 \end{titlepage}
@@ -259,10 +263,10 @@
     
     \vskip 1em
     {\large 
-    \ifthenelse{\equal{\my@title@type@en}{coursework}}
-    {Course Work}
-    {\ifthenelse{\equal{\my@title@type@en}{diploma}}
-    {Bachelor's thesis}
+    \ifthenelse{\equal{\my@title@type@en}{practice}}
+    {Internship report}
+    {\ifthenelse{\equal{\my@title@type@en}{prediploma}}
+    {Pre-Diploma Internship report}
     {\ifthenelse{\equal{\my@title@type@en}{master}}
     {Master's Thesis}
     {\ifthenelse{\equal{\my@title@type@en}{bachelor}}
@@ -270,7 +274,7 @@
     }}}
     \\}
     \vskip 2em
-    \ifthenelse{\equal{\my@title@type@en}{coursework}}
+    \ifthenelse{\equal{\my@title@type@en}{practice}}
     {\normalsize \raggedleft 
     Scientific supervisor:\\
     \my@title@supervisorPosition@en\ \my@title@supervisor@en
