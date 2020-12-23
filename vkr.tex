@@ -1,5 +1,17 @@
 \input{header.tex}
 
+\usepackage{caption}
+\usepackage{listings}
+
+\DeclareCaptionFont{white}{ \color{white} }
+\DeclareCaptionFormat{listing}{
+    \parbox{\textwidth}{\hspace{15pt}#1#2#3}
+}
+\captionsetup[lstlisting]{ format=listing
+  %, labelfont=white, textfont=white
+  , singlelinecheck=false, margin=0pt, font={bf}
+}
+
 \begin{document}
 \input{title.tex}
 \maketitle
@@ -23,10 +35,18 @@
 \section{Background (опционально)}
 TODO
 
+
 \section{Метод}
 Реализация в широком смысле: что таки было сделано. Скорее всего самый большой раздел.
 
 \emph{Крайне желательно} к Новому году иметь что-то, что сюда можно написать.
+
+
+
+\begin{lstlisting}[caption=Название, language=Caml, frame=single]
+let x = 5 in x+1
+\end{lstlisting}
+
 
 \section{Эксперимент}
 Как мы проверяем, что  всё удачно получилось
