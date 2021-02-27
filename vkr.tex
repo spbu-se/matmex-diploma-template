@@ -1,4 +1,5 @@
 \input{header.tex}
+\input{header2.tex}
 
 \usepackage{caption}
 \usepackage{listings}
@@ -42,10 +43,40 @@ TODO
 \emph{Крайне желательно} к Новому году иметь что-то, что сюда можно написать.
 
 
+\subsection{Основные грабли}
+Здесь мы будем собирать основные ошибки, которые случаются при написании текстов.
+
 
 \begin{lstlisting}[caption=Название, language=Caml, frame=single]
 let x = 5 in x+1
 \end{lstlisting}
+
+\subsection{Выделения куска листинга с помощью tikz}
+\url{https://tex.stackexchange.com/questions/284311}
+
+\begin{lstlisting}[escapechar=!,basicstyle=\ttfamily]
+#include <stdio.h>
+#include <math.h>
+
+int main () {
+  double c=-1;
+  double z=0;
+  int i;
+
+  printf (``For c = %lf:\n'', c );
+  for ( i=0; i<10; i++ ) {
+    printf ( !\tikzmark{a}!"z %d = %lf\n"!\tikzmark{b}!, i, z );
+    z = pow(z,2) + c;
+  }
+}
+\end{lstlisting}
+
+\begin{tikzpicture}[use tikzmark]
+\draw[fill=gray,opacity=0.1]
+  ([shift={(-3pt,2ex)}]pic cs:a) 
+    rectangle 
+  ([shift={(3pt,-0.65ex)}]pic cs:b);
+\end{tikzpicture}
 
 
 \section{Эксперимент}
@@ -95,18 +126,20 @@ let x = 5 in x+1
 
 Если основная заслуга метода, это то, что он дает лучшие цифры, то стоит сказать, где мы могли облажаться, когда проводили численные замеры. 
 
-\section{Заключение}
+\section{Заключение (обязательно в осеннем семестре)}
 
 Кратко, что было сделано. Также здесь стоит писать задачи на будущее.
 
-\textbf{Для курсовых/дипломов.} Также стоит сделать список результатов, который будет 1 к одному соответствовать задачам из раздела~\ref{sec:task}.
+\textbf{Для практик/ВКР.} Также важно сделать список результатов, который будет один к одному соответствовать задачам из раздела~\ref{sec:task}.
 
 \begin{itemize}
 \item Результат к задаче 1 
 \item Результат к задаче 2
 \item и т.д.
 \end{itemize}
+\noindent Для промежуточных отчетов сюда важно записать какие задачи уже были сделаны за осенний семестр, а какие только планируется сделать.
 
+Также сюда можно писать планы развития работы в будущем, или, если их много, выделять под это отдельную главу.
 
 
 % \nocite{*}
