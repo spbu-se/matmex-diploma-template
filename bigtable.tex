@@ -1,0 +1,54 @@
+\newcolumntype{C}{ >{\centering\arraybackslash} m{4cm} }
+\newcommand\myvert[1]{\rotatebox[origin=c]{90}{#1}}
+\newcommand\myvertcell[1]{\multirowcell{5}{\myvert{#1}}}
+\newcommand\myvertcelll[1]{\multirowcell{4}{\myvert{#1}}}
+
+
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+& \multicolumn{17}{c|}{} \\ \hline 
+\multirowcell{5}{Код модуля \\в составе \\ дисциплины,\\практики и т.п. }
+  &\multirowcell{6}{\rotatebox[origin=c]{90}{Трудоёмкость} } 
+  & \multicolumn{10}{c|}{\tiny{Контактная работа обучающихся с преподавателем}} 
+  & \multicolumn{5}{c|}{\tiny{Самостоятельная работа}} 
+  & \myvertcell{\tiny Объем активных и интерактивных } 
+  \\ \cline{3-17}
+
+&& \myvertcelll{лекции} 
+    &\myvertcelll{семинары}
+    &\myvertcelll{консультации}
+    &\myvertcelll{\tiny практические  занятия}
+    &\myvertcelll{\tiny лабораторные работы}
+    &\myvertcelll{\tiny контрольные работы}
+    &\myvertcelll{\tiny коллоквиумы}
+    &\myvertcelll{\tiny текущий контроль}
+    &\myvertcelll{\tiny промежуточная аттестация}
+    &\myvertcelll{\tiny итоговая аттестация}
+    
+    &\myvertcelll{\tiny под руководством    преподавателя}
+    &\myvertcelll{\tiny в присутствии     преподавателя   }
+    &\myvertcelll{\tiny с использованием    методических}
+    &\myvertcelll{\tiny текущий контроль}
+    &\myvertcelll{\tiny промежуточная аттестация } 
+    &     \\
+&& &&&&&&&&& &&&&&&\\
+&& &&&&&&&&& &&&&&&\\
+&& &&&&&&&&& &&&&&&\\ 
+&&&&&&&&&&& &&&&&&\\ 
+&&&&&&&&&&& &&&&&&\\ 
+&&&&&&&&&&& &&&&&&\\ \hline
+Семестр 3 & 2 &30  &&&&&&&&2   & &&&18 &&20 &10\\ \hline
+          &   &2-42&&&&&&&&2-25& &&&1-1&&1-1&\\ \hline
+Итого     & 2 &30  &&&&&&&&2   & &&&18 &&20 &10\\ \hline
+\end{tabular}
+
+        \captionof{table}{Table caption}% Add 'table' caption
+    \end{landscape}
+    \clearpage% Flush page
+}
+
