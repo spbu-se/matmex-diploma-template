@@ -1,0 +1,16 @@
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,calc,shapes,positioning,tikzmark}
+
+\newcounter{tmkcount}
+
+\tikzset{
+  use tikzmark/.style={
+    remember picture,
+    overlay,
+    execute at end picture={
+      \stepcounter{tmkcount}
+    },
+  },
+  tikzmark suffix={-\thetmkcount}
+}
