@@ -115,6 +115,7 @@
 \define@key[ru]{mytitle}{programme}{\def\my@title@programme@ru{#1}}
 \define@key[ru]{mytitle}{profile}{\def\my@title@profile@ru{#1}}
 \define@choicekey*[ru]{mytitle}{type}{coursework,practice,prediploma,master,bachelor}{\def\my@title@type@ru{#1}}
+\define@choicekey*[ru]{mytitle}{kind}{solution,experiment,production,comparison,theoretical}{\def\my@title@kind@ru{#1}}
 
 %% Англоязычный вариант
 \define@key[en]{mytitle}{chair}{\def\my@title@chair@en{#1}}
@@ -132,6 +133,7 @@
 \define@key[en]{mytitle}{programme}{\def\my@title@programme@en{#1}}
 \define@key[en]{mytitle}{profile}{\def\my@title@profile@en{#1}}
 \define@choicekey*[en]{mytitle}{type}{coursework,practice,prediploma,master,bachelor}{\def\my@title@type@en{#1}}
+\define@choicekey*[en]{mytitle}{kind}{solution,experiment,production,comparison,theoretical}{\def\my@title@kind@en{#1}}
 
 \newcommand{\filltitle}[2]{
 %% Значения по умолчанию для обоих языков
@@ -201,7 +203,19 @@
             {\ifthenelse{\equal{\my@title@type@ru}{practice}}
                 {Отчёт по учебной практике}
                 {Отчёт по преддипломной практике}
-            }
+            }\\
+            \ifthenelse{\equal{\my@title@kind@ru}{solution}}
+                {в форме <<Решение>>}
+                {\ifthenelse{\equal{\my@title@kind@ru}{experiment}}
+                    {в форме <<Эксперимент>>}
+                    {\ifthenelse{\equal{\my@title@kind@ru}{production}}
+                        {в форме <<Производственное задание>>}
+                        {\ifthenelse{\equal{\my@title@kind@ru}{comparison}}
+                            {в форме <<Сравнение>>}
+                            {в форме <<Теоретическое исследование>>}
+                        }
+                    }
+                }
         }\\
         {\normalsize \raggedleft 
             \vskip 5em
@@ -291,7 +305,20 @@
                 {\ifthenelse{\equal{\my@title@type@en}{practice}}
                     {Internship report}
                     {Pre-Diploma practice report}
+                }\\
+                \ifthenelse{\equal{\my@title@kind@en}{solution}}
+                {in a <<Solution>> form}
+                {\ifthenelse{\equal{\my@title@kind@en}{experiment}}
+                    {in an <<Experiment>> form}
+                    {\ifthenelse{\equal{\my@title@kind@en}{production}}
+                        {in a <<Production>> form}
+                        {\ifthenelse{\equal{\my@title@kind@en}{comparison}}
+                            {in a <<Comparison>> form}
+                            {in a <<Theoretical research>> form}
+                        }
+                    }
                 }
+
             }\\
             {\normalsize \raggedleft 
                 \vskip 5em
