@@ -24,4 +24,4 @@ depext: depext-deb
 
 # Not a full list of external dependencies. To be extended...
 depext-deb:
-	sudo apt install fonts-cmu texlive-lang-cyrillic
+	sudo apt install fonts-cmu texlive-lang-cyrillic texlive-xetex
