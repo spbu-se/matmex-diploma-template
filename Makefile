@@ -15,7 +15,7 @@ $(NAME).pdf: $(FILES_TEX)
 	$(XELATEX) $<
 
 clean:
-	$(RM) *.bak *.out *.toc  *.bbl *.blg *.aux *.nav *.vrb *.snm *.log *.synctex.gz
+	$(RM) *.bak *.out *.toc *.bcf *.bbl *.blg *.aux *.nav *.vrb *.snm *.log $(NAME).run.xml *.synctex.gz
 
 aspell:
 	aspell --mode=tex -l ru --home-dir=. --personal=personal_dict.txt  -c $(FILE)
@@ -24,4 +24,9 @@ depext: depext-deb
 
 # Not a full list of external dependencies. To be extended...
 depext-deb:
-	sudo apt install fonts-cmu texlive-lang-cyrillic texlive-xetex
+	sudo apt install fonts-cmu texlive-lang-cyrillic texlive-xetex texlive-bibtex-extra texlive-plain-generic \
+  # for pzdr font
+	sudo apt install texlive-fonts-recommended 
+	sudo apt install hunspell-ru
+
+
