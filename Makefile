@@ -6,7 +6,7 @@ XELATEX=xelatex -jobname=$(NAME)
 
 all: $(NAME).pdf
 
-FILES_TEX=$(MAIN).tex intro.tex related.tex
+FILES_TEX=$(MAIN).tex 000intro.tex 010task.tex 020related.tex 040method.tex 070experiment.tex 090conclusion.tex
 
 $(NAME).pdf: $(FILES_TEX)
 	$(XELATEX) $<
