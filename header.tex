@@ -136,3 +136,8 @@ language=ocaml
 
 \usepackage{afterpage}
 \usepackage{pdflscape}
+
+% swapping \phi and \varphi
+% https://tex.stackexchange.com/a/50365/171947
+\expandafter\mathchardef\expandafter\varphi\number\expandafter\phi\expandafter\relax
+\expandafter\mathchardef\expandafter\phi\number\varphi
