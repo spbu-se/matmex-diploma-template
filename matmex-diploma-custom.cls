@@ -1,3 +1,4 @@
+%!TEX root = vkr.tex
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{matmex-diploma-custom}[2020/12/09 MatMex LaTeX diploma class]
 \def\my@fontsize{12pt}\def\my@baseclass{article}\def\my@title12pt{}\def\my@body14pt{}
@@ -193,9 +194,9 @@
 
     \ifthenelse{\equal{\my@title@type@ru}{coursework} \OR \equal{\my@title@type@ru}{practice} \OR \equal{\my@title@type@ru}{prediploma}}
     {
-        {\Large\textbf{\textit{\my@title@author@ru}}}
-        \vskip 2em
         {\Huge \@title}
+        \vskip 2em
+        {\Large\textbf{\textit{\my@title@author@ru}}}
         \vskip 1em
         {\large
             \ifthenelse{\equal{\my@title@type@ru}{coursework}}
