@@ -1,7 +1,11 @@
+% !TeX spellcheck = ru_RU
+% !TEX root = vkr.tex
+
 \newcolumntype{C}{ >{\centering\arraybackslash} m{4cm} }
 \newcommand\myvert[1]{\rotatebox[origin=c]{90}{#1}}
 \newcommand\myvertcell[1]{\multirowcell{5}{\myvert{#1}}}
 \newcommand\myvertcelll[1]{\multirowcell{4}{\myvert{#1}}}
+\newcommand\myvertcellN[2]{\multirowcell{#1}{\myvert{#2}}}
 
 
 \afterpage{%
@@ -11,30 +15,30 @@
         \centering % Center table
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
-& \multicolumn{17}{c|}{} \\ \hline 
-\multirowcell{5}{Код модуля \\в составе \\ дисциплины,\\практики и т.п. }
-  &\multirowcell{6}{\rotatebox[origin=c]{90}{Трудоёмкость} } 
+%& \multicolumn{17}{c|}{} \\ \hline 
+\multirowcell{2}{Код модуля \\в составе \\ дисциплины,\\практики и т.п. }
+  &\myvertcellN{2}{Трудоёмкость}
   & \multicolumn{10}{c|}{\tiny{Контактная работа обучающихся с преподавателем}} 
   & \multicolumn{5}{c|}{\tiny{Самостоятельная работа}} 
-  & \myvertcell{\tiny Объем активных и интерактивных } 
+  & \myvertcellN{2}{\tiny Объем активных и интерактивных } 
   \\ \cline{3-17}
 
-&& \myvertcelll{лекции} 
-    &\myvertcelll{семинары}
-    &\myvertcelll{консультации}
-    &\myvertcelll{\tiny практические  занятия}
-    &\myvertcelll{\tiny лабораторные работы}
-    &\myvertcelll{\tiny контрольные работы}
-    &\myvertcelll{\tiny коллоквиумы}
-    &\myvertcelll{\tiny текущий контроль}
-    &\myvertcelll{\tiny промежуточная аттестация}
-    &\myvertcelll{\tiny итоговая аттестация}
+&& \myvertcellN{2}{лекции} 
+    &\myvertcellN{2}{семинары}
+    &\myvertcellN{2}{консультации}
+    &\myvertcellN{2}{\small практические  занятия }
+    &\myvertcellN{2}{\small лабораторные работы }
+    &\myvertcellN{2}{\small контрольные работы }
+    &\myvertcellN{2}{\small коллоквиумы }
+    &\myvertcellN{2}{\small текущий контроль }
+    &\myvertcellN{2}{\small промежуточная аттестация }
+    &\myvertcellN{2}{\small итоговая аттестация }
     
-    &\myvertcelll{\tiny под руководством    преподавателя}
-    &\myvertcelll{\tiny в присутствии     преподавателя   }
-    &\myvertcelll{\tiny с использованием    методических}
-    &\myvertcelll{\tiny текущий контроль}
-    &\myvertcelll{\tiny промежуточная аттестация } 
+    &\myvertcellN{2}{\tiny под руководством    преподавателя}
+    &\myvertcellN{2}{\tiny в присутствии     преподавателя   }
+    &\myvertcellN{2}{\tiny с использованием    методических}
+    &\myvertcellN{2}{\small текущий контроль}
+    &\myvertcellN{2}{\tiny промежуточная аттестация } 
     &     \\
 && &&&&&&&&& &&&&&&\\
 && &&&&&&&&& &&&&&&\\
@@ -47,7 +51,7 @@
 Итого     & 2 &30  &&&&&&&&2   & &&&18 &&20 &10\\ \hline
 \end{tabular}
 
-        \captionof{table}{Table caption}% Add 'table' caption
+        \captionof{table}{Если таблица очень большая, то можно её изобразить на отдельной портретной странице}
     \end{landscape}
     \clearpage% Flush page
 }
