@@ -29,8 +29,8 @@
 
 \graphicspath{ {resources/} }
 
-% 
-% % \documentclass 
+%
+% % \documentclass
 % %   [ a4paper        % (Predefined, but who knows...)
 % %   , draft,         % Show bad things.
 % %   , 12pt           % Font size.
@@ -41,13 +41,13 @@
 % %   , BCOR=5mm       % Binding size correction.
 % %   , submission
 % %   , copyright
-% %   , creativecommons 
+% %   , creativecommons
 % %   ]{eptcs}
 % % \providecommand{\event}{ML 2018}  % Name of the event you are submitting to
 % % \usepackage{breakurl}             % Not needed if you use pdflatex only.
-% 
+%
 % \usepackage{underscore}           % Only needed if you use pdflatex.
-% 
+%
 % \usepackage{booktabs}
 % \usepackage{amssymb}
 % \usepackage{amsmath}
@@ -71,16 +71,16 @@
 % \usepackage{soul}
 \usepackage{csquotes}
 % \usepackage{inconsolata}
-% 
+%
 % \usepackage{polyglossia}   % Babel replacement for XeTeX
 %   \setdefaultlanguage[spelling=modern]{russian}
 %   \setotherlanguage{english}
-% \usepackage{fontspec}    % Provides an automatic and unified interface 
+% \usepackage{fontspec}    % Provides an automatic and unified interface
 %                          % for loading fonts.
 % \usepackage{xunicode}    % Generate Unicode chars from accented glyphs.
 % \usepackage{xltxtra}     % "Extras" for LaTeX users of XeTeX.
 % \usepackage{xecyr}       % Help with Russian.
-% 
+%
 % %% Fonts
 % \defaultfontfeatures{Mapping=tex-text}
 % \setmainfont{CMU Serif}
@@ -115,7 +115,7 @@ basewidth={0.5em,0.5em},
 fontadjust=true,
 language=ocaml
 }
- 
+
 \newcommand{\cd}[1]{\texttt{#1}}
 \newcommand{\inbr}[1]{\left<#1\right>}
 
@@ -148,3 +148,11 @@ language=ocaml
 % https://tex.stackexchange.com/a/50365/171947
 \expandafter\mathchardef\expandafter\varphi\number\expandafter\phi\expandafter\relax
 \expandafter\mathchardef\expandafter\phi\number\varphi
+
+%https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
