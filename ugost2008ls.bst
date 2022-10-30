@@ -574,20 +574,24 @@ FUNCTION {bbl.ppage}  %   { "\bblP." }
    if$}
 if$}
 
+% Kakadu: let's write access date everywhere, because most of student's
+% graduations works are in Russian
 FUNCTION {bbl.urldate}
-{ curlanguage "english" =
-   {"online; accessed"}
-   { curlanguage "ukrainian" =
-      { "{дата звернення}" }
-      { curlanguage "russian" =
-         { "{дата обращения}" }
-         { curlanguage "german" =
-            { "{online; abgerufen}" }
-            { "language is not defined: " language "urldate" * * warning$ "online; accessed" }
-         if$}
-      if$}
-   if$}
-if$}
+{ "{дата обращения}" }
+%FUNCTION {bbl.urldate}
+%{ curlanguage "english" =
+%   {"online; accessed"}
+%   { curlanguage "ukrainian" =
+%      { "{дата звернення}" }
+%      { curlanguage "russian" =
+%         { "{дата обращения}" }
+%         { curlanguage "german" =
+%            { "{online; abgerufen}" }
+%            { "language is not defined: " language "urldate" * * warning$ "online; accessed" }
+%         if$}
+%      if$}
+%   if$}
+%if$}
 
 FUNCTION {bbl.techreport} % rename to bbl.techreport
 { curlanguage "english" =
