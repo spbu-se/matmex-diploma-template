@@ -6,7 +6,10 @@
 *.blg
 *.pag
 *.toc
+*.xdv
 *.pdf
+*.dvi
+*.fls
 /.aspell*
 /*.synctex.gz
 

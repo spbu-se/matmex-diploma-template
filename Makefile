@@ -15,7 +15,7 @@ $(NAME).pdf: $(FILES_TEX)
 	$(XELATEX) $<
 
 clean:
-	$(RM) *.bak *.out *.toc *.bcf *.bbl *.blg *.aux *.nav *.vrb *.snm *.log $(NAME).run.xml *.synctex.gz
+	$(RM) *.bak *.out *.toc *.bcf *.bbl *.blg *.aux *.nav *.vrb *.snm *.log *.xdv *.fls *.dvi $(NAME).run.xml *.synctex.gz
 
 aspell:
 	aspell --mode=tex -l ru --home-dir=. --personal=personal_dict.txt  -c $(FILE)
