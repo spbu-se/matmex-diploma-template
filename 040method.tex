@@ -19,7 +19,7 @@
 Здесь мы будем собирать основные ошибки, которые случаются при написании текстов. В интернетах тоже можно найти коллекции типичных косяков\footnote{\href{https://www.read.seas.harvard.edu/~kohler/latex.html}{https://www.read.seas.harvard.edu/~kohler/latex.html}}.
 
 
-\begin{lstlisting}[caption=Название обязательно, language=Caml, frame=single]
+\begin{lstlisting}[caption={Название для листинга кода. Достаточно длинное, чтобы люди, которые смотрят картинка сразу после названия статьи (т.~е. все люди), смогли разобраться и понять к чему в статье листинги, картинки и прочий ``не текст''.}, language=Caml, frame=single]
 let x = 5 in x+1
 \end{lstlisting}
 
@@ -48,7 +48,7 @@ int main () {
 
 \begin{tikzpicture}[use tikzmark]
 \draw[fill=gray,opacity=0.1]
-  ([shift={(-3pt,2ex)}]pic cs:a) 
-    rectangle 
+  ([shift={(-3pt,2ex)}]pic cs:a)
+    rectangle
   ([shift={(3pt,-0.65ex)}]pic cs:b);
 \end{tikzpicture}

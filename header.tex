@@ -116,6 +116,27 @@ fontadjust=true,
 language=ocaml
 }
 
+% перевод заголовков в листингах
+\renewcommand\lstlistingname{Листинг}
+\renewcommand\lstlistlistingname{Листинги}
+
+\usepackage{caption}
+
+% Add indent for listing captions
+\DeclareCaptionFormat{listing}{
+  %\parbox{\textwidth}{
+    \hspace{15pt}#1#2#3
+    %}
+}
+\captionsetup[lstlisting]{
+  format=listing
+  %, labelfont=white, textfont=white
+  %  , singlelinecheck=false
+  , margin=0pt
+  , font={bf}
+}
+
+
 \newcommand{\cd}[1]{\texttt{#1}}
 \newcommand{\inbr}[1]{\left<#1\right>}
 
@@ -129,10 +150,6 @@ language=ocaml
 \usepackage{soul}
 \usepackage[normalem]{ulem}
 %\sout{Hello World}
-
-% перевод заголовков в листингах
-\renewcommand\lstlistingname{Листинг}
-\renewcommand\lstlistlistingname{Листинги}
 
 \newcommand{\vsharp}{\textsc{V$\sharp$}}
 \newcommand{\fsharp}{\textsc{F$\sharp$}}
