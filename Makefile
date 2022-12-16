@@ -24,9 +24,7 @@ depext: depext-deb
 
 # Not a full list of external dependencies. To be extended...
 depext-deb:
-	sudo apt install fonts-cmu texlive-lang-cyrillic texlive-xetex texlive-bibtex-extra texlive-plain-generic \
+	sudo apt install fonts-cmu texlive-lang-cyrillic texlive-xetex texlive-bibtex-extra texlive-science texlive-plain-generic --yes
   # for pzdr font
-	sudo apt install texlive-fonts-recommended 
-	sudo apt install hunspell-ru
-
-
+	sudo apt install texlive-fonts-recommended --yes
+	sudo apt install hunspell-ru --yes

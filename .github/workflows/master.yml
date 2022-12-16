@@ -1,0 +1,51 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.7.0
+
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - run: make depext-deb
+
+      - run: make
+
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: VKR
+          path: vkr.pdf
+
+      # - name: example-class-relations--svg
+      #   uses: dante-ev/latex-action@latest
+      #   with:
+      #     root_file: vkr.tex
+      #     compiler: xelatex
+      #     args: -interaction=nonstopmode -shell-escape
+
+# name: Build LaTeX document
+# on: [push]
+# jobs:
+#   build_latex:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Set up Git repository
+#         uses: actions/checkout@v3
+
+#       - name: Compile LaTeX document
+#         uses: xu-cheng/latex-action@v2
+#         with:
+#           root_file: vkr.tex
+#           latexmk_use_xelatex: true
+#           latexmk_shell_escape: true
+#           extra_system_packages:  texlive-lang-cyrillic texlive-xetex texlive-bibtex-extra texlive-plain-generic texlive-fonts-recommended
+
+#       - name: Upload PDF file
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: PDF
+#           path: main.pdf
