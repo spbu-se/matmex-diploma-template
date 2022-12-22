@@ -1,6 +1,6 @@
 MAIN=vkr
 NAME=$(MAIN)
-XELATEX=xelatex -jobname=$(NAME)
+XELATEX=xelatex -jobname=$(NAME) --interaction=nonstopmode
 
 .PHONY: $(NAME).pdf clean depext depext-deb
 

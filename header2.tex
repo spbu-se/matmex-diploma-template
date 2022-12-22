@@ -1,4 +1,6 @@
-% TODO: Понять, почему я выделил то, что тут в отдельный файл
+% !TeX spellcheck = ru_RU
+% !TEX root = vkr.tex
+% Опциональные добавления используемых пакетов. Вполне может быть, что они вам не понадобятся, но в шаблоне приведены примеры их использования.
 \usepackage{listings}
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing,calc,shapes,positioning,tikzmark}
@@ -19,7 +21,8 @@
 
 \usepackage{comment}
 \usepackage{booktabs}%midrule/toprule/...
-
+% В шаблоне есть команда \multirowcell, которой нужен этот пакет.
+\usepackage{multirow}
 \usepackage{siunitx} % для таблиц с едлиницами измерений
 \newcommand{\cd}[1]{\texttt{#1}}
 \newcommand{\inbr}[1]{\left<#1\right>}
@@ -32,3 +35,7 @@
 \newcommand{\csharp}{\textsc{C$\sharp$}}
 \newcommand{\GitHub}{\textsc{GitHub}}
 \newcommand{\SMT}{\textsc{SMT}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
