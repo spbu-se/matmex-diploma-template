@@ -115,7 +115,7 @@
 \define@key[ru]{mytitle}{specialty}{\def\my@title@specialty@ru{#1}}
 \define@key[ru]{mytitle}{programme}{\def\my@title@programme@ru{#1}}
 \define@key[ru]{mytitle}{profile}{\def\my@title@profile@ru{#1}}
-\define@choicekey*[ru]{mytitle}{type}{coursework,practice,prediploma,master,bachelor}{\def\my@title@type@ru{#1}}
+\define@choicekey*[ru]{mytitle}{type}{coursework,practice,prediploma,master,bachelor,production}{\def\my@title@type@ru{#1}}
 \define@choicekey*[ru]{mytitle}{kind}{solution,experiment,production,comparison,theoretical}{\def\my@title@kind@ru{#1}}
 
 %% Англоязычный вариант
@@ -192,19 +192,22 @@
 
     \vspace*{0.25\textheight}
 
-    \ifthenelse{\equal{\my@title@type@ru}{coursework} \OR \equal{\my@title@type@ru}{practice} \OR \equal{\my@title@type@ru}{prediploma}}
+    \ifthenelse{\equal{\my@title@type@ru}{coursework} \OR \equal{\my@title@type@ru}{practice} \OR \equal{\my@title@type@ru}{prediploma} \OR \equal{\my@title@type@ru}{prediploma}}
     {
         {\Huge \@title}
         \vskip 2em
         {\Large\textbf{\textit{\my@title@author@ru}}}
         \vskip 1em
         {\large
-            \ifthenelse{\equal{\my@title@type@ru}{coursework}}
-            {Отчёт по курсовой работе}
-            {\ifthenelse{\equal{\my@title@type@ru}{practice}}
-                {Отчёт по учебной практике}
-                {Отчёт по преддипломной практике}
-            }\\
+            \ifthenelse{\equal{\my@title@type@ru}{production}}
+                {Отчет по производственной практике}
+                {\ifthenelse{\equal{\my@title@type@ru}{coursework}}
+                    {Отчёт по курсовой работе}
+                    {\ifthenelse{\equal{\my@title@type@ru}{practice}}
+                        {Отчёт по учебной практике}
+                        {Отчёт по преддипломной практике}
+                    }
+                }
             \ifthenelse{\equal{\my@title@kind@ru}{solution}}
                 {в форме <<Решение>>}
                 {\ifthenelse{\equal{\my@title@kind@ru}{experiment}}
