@@ -1,21 +1,18 @@
-MAIN=vkr
-NAME=$(MAIN)
-XELATEX=xelatex -jobname=$(NAME) --interaction=nonstopmode
+NAME ?= vkr
+ENGINE ?= xelatex # Only `xelatex` or `lualatex` are allowed here
 
-.PHONY: $(NAME).pdf clean depext depext-deb
+.PHONY: $(NAME).pdf clean dist-clean depext depext-deb
 
 all: $(NAME).pdf
 
-FILES_TEX=$(MAIN).tex 000intro.tex 010task.tex 020related.tex 040method.tex 070experiment.tex 090conclusion.tex
-
-$(NAME).pdf: $(FILES_TEX)
-	$(XELATEX) $<
-	bibtex $(MAIN).aux
-	$(XELATEX) $<
-	$(XELATEX) $<
+$(NAME).pdf:
+	latexmk -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape $(NAME).tex
 
 clean:
-	$(RM) *.bak *.out *.toc *.bcf *.bbl *.blg *.aux *.nav *.vrb *.snm *.log *.xdv *.fls *.dvi $(NAME).run.xml *.synctex.gz
+	latexmk -c $(NAME).tex
+
+dist-clean:
+	latexmk -C $(NAME).tex
 
 aspell:
 	aspell --mode=tex -l ru --home-dir=. --personal=personal_dict.txt  -c $(FILE)
