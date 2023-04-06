@@ -1,148 +1,71 @@
-\usepackage[table]{xcolor}
-\usepackage{graphicx}
-\usepackage{tabularx}
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{thmtools}
-\usepackage{thm-restate}
-\usepackage{tikz}
-\usepackage{wrapfig}
-% \usepackage[kpsewhich,newfloat]{minted}
-% \usemintedstyle{vs}
-\usepackage[inline]{enumitem}
-\usepackage{subcaption}
-\usepackage{caption}
-%\usepackage[nocompress]{cite}
-\usepackage{makecell}
-% \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-% \setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+% !TeX spellcheck = ru_RU
+% !TEX root = vkr.tex
+% Основные необходимые пакеты и команды.
 
+%%% Пакеты
+%% Графика
+\usepackage[table]{xcolor} % Работа с цветами
+\usepackage{graphicx} % Вставка графики в текст (изображения, в т.ч. pdf)
+\graphicspath{ {figures/} } % Задает папку по-умолчанию для графики
 
-\graphicspath{ {figures/} }
+\usepackage{wrapfig2} % Позволяет вставлять графику, обтекаемую текстом
+\usepackage{caption} % Настройка подписей "не текста"
+\usepackage{subcaption} % Подписи для разделенного "не текста"
 
-%
-% % \documentclass
-% %   [ a4paper        % (Predefined, but who knows...)
-% %   , draft,         % Show bad things.
-% %   , 12pt           % Font size.
-% %   , pagesize,      % Writes the paper size at special areas in DVI or
-% %                    % PDF file. Recommended for use.
-% %   , parskip=half   % Paragraphs: noindent + gap.
-% %   , numbers=enddot % Pointed numbers.
-% %   , BCOR=5mm       % Binding size correction.
-% %   , submission
-% %   , copyright
-% %   , creativecommons
-% %   ]{eptcs}
-% % \providecommand{\event}{ML 2018}  % Name of the event you are submitting to
-% % \usepackage{breakurl}             % Not needed if you use pdflatex only.
-%
-% \usepackage{underscore}           % Only needed if you use pdflatex.
-%
-% \usepackage{booktabs}
-% \usepackage{amssymb}
-% \usepackage{amsmath}
-% \usepackage{mathrsfs}
-% \usepackage{mathtools}
-% \usepackage{multirow}
-% \usepackage{indentfirst}
-% \usepackage{verbatim}
-% \usepackage{amsmath, amssymb}
-% \usepackage{graphicx}
-% \usepackage{xcolor}
-% \usepackage{url}
-% \usepackage{stmaryrd}
-% \usepackage{xspace}
-% \usepackage{comment}
-% \usepackage{wrapfig}
-% \usepackage[caption=false]{subfig}
-% \usepackage{placeins}
-% \usepackage{tabularx}
-% \usepackage{ragged2e}
-% \usepackage{soul}
-\usepackage{csquotes}
-% \usepackage{inconsolata}
-%
-% \usepackage{polyglossia}   % Babel replacement for XeTeX
-%   \setdefaultlanguage[spelling=modern]{russian}
-%   \setotherlanguage{english}
-% \usepackage{fontspec}    % Provides an automatic and unified interface
-%                          % for loading fonts.
-% \usepackage{xunicode}    % Generate Unicode chars from accented glyphs.
-% \usepackage{xltxtra}     % "Extras" for LaTeX users of XeTeX.
-% \usepackage{xecyr}       % Help with Russian.
-%
-% %% Fonts
-% \defaultfontfeatures{Mapping=tex-text}
-% \setmainfont{CMU Serif}
-% \setsansfont{CMU Sans Serif}
-% \setmonofont{CMU Typewriter Text}
+%% Математика
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
+\usepackage{thmtools} % Мощный пакет для работы с математическими окружениями типа "теорема"
+\usepackage{thm-restate} % Дополнение к предыдущему пакету, позволяющее повторять теоремы
 
-\usepackage[final]{listings}
+%% Таблицы
+\usepackage{tabularx} % Добавляет столбец типа "X", который автоматически занимает максимально возможное место
+\usepackage{makecell} % Позволяет кастомизировать ячейки таблицы
 
-\lstdefinelanguage{ocaml}{
-keywords={@type, function, fun, let, in, match, with, when, class, type,
-nonrec, object, method, of, rec, repeat, until, while, not, do, done, as, val, inherit, and,
-new, module, sig, deriving, datatype, struct, if, then, else, open, private, virtual, include, success, failure,
-lazy, assert, true, false, end},
-sensitive=true,
-commentstyle=\small\itshape\ttfamily,
-keywordstyle=\ttfamily\bfseries, %\underbar,
-identifierstyle=\ttfamily,
-basewidth={0.5em,0.5em},
-columns=fixed,
-fontadjust=true,
-literate={->}{{$\to$}}3 {===}{{$\equiv$}}1 {=/=}{{$\not\equiv$}}1 {|>}{{$\triangleright$}}3 {\\/}{{$\vee$}}2 {/\\}{{$\wedge$}}2 {>=}{{$\ge$}}1 {<=}{{$\le$}} 1,
-morecomment=[s]{(*}{*)}
+%% Код
+\usepackage{listings} % Позволяет вставлять код в документ
+% Перевод заголовков в листингах
+\renewcommand\lstlistingname{Листинг}
+\renewcommand\lstlistlistingname{Листинги}
+% Отступ перед подписью листинга
+\DeclareCaptionFormat{listing}{
+    % TODO: try to use something like \indent instead of hardcoded value
+    \hspace{15pt}#1#2#3
 }
-
+\captionsetup[lstlisting]{
+  format=listing,
+  margin=0pt,
+  font={bf}
+}
 \lstset{
 mathescape=true,
-%basicstyle=\small,
 identifierstyle=\ttfamily,
 keywordstyle=\bfseries,
 commentstyle=\scriptsize\rmfamily,
 basewidth={0.5em,0.5em},
 fontadjust=true,
-language=ocaml
 }
+% TODO: minted vs. listings
+% \usepackage[kpsewhich,newfloat]{minted}
+% \usemintedstyle{vs}
 
-% перевод заголовков в листингах
-\renewcommand\lstlistingname{Листинг}
-\renewcommand\lstlistlistingname{Листинги}
+%% Текст
+\usepackage[inline]{enumitem} % Настройка списков, а так же "строчные" списки
+% \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+% \setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
 
-\usepackage{caption}
+\usepackage[useregional]{datetime2} % Форматирование дат
+\usepackage[normalem]{ulem} % Дополнительные варианты форматирования текста, например подчеркивание или зачеркивание
 
-% Add indent for listing captions
-\DeclareCaptionFormat{listing}{
-  %\parbox{\textwidth}{
-    \hspace{15pt}#1#2#3
-    %}
-}
-\captionsetup[lstlisting]{
-  format=listing
-  %, labelfont=white, textfont=white
-  %  , singlelinecheck=false
-  , margin=0pt
-  , font={bf}
-}
+% TODO: Do we really need these packages?
+% \usepackage{ragged2e}
+% \usepackage{csquotes}
 
-\usepackage[useregional]{datetime2}
+%% Разное
+\usepackage{afterpage} % Выполнение команд после разрыва страниц
+\usepackage{pdflscape} % Правильное отображение альбомной страницы в pdf файле
 
-\usepackage{soul}
-\usepackage[normalem]{ulem}
-%\sout{Hello World}
-
-
-
-\usepackage{afterpage}
-\usepackage{pdflscape}
-
-% swapping \phi and \varphi
+%%% Команды
+% Смена \phi и \varphi
 % https://tex.stackexchange.com/a/50365/171947
 \expandafter\mathchardef\expandafter\varphi\number\expandafter\phi\expandafter\relax
 \expandafter\mathchardef\expandafter\phi\number\varphi
@@ -154,4 +77,3 @@ language=ocaml
 	\addtocounter{footnote}{-1}%
 	\endgroup
 }
-

@@ -1,9 +1,9 @@
 % !TeX spellcheck = ru_RU
 % !TEX root = vkr.tex
 % Опциональные добавления используемых пакетов. Вполне может быть, что они вам не понадобятся, но в шаблоне приведены примеры их использования.
-\usepackage{listings}
-\usepackage{tikz}
+\usepackage{tikz} % Мощный пакет для создание рисунков, однако может очень сильно замедлять компиляцию
 \usetikzlibrary{decorations.pathreplacing,calc,shapes,positioning,tikzmark}
+% TODO: Should we use tikz-externalize?
 
 \newcounter{tmkcount}
 
@@ -18,12 +18,11 @@
   tikzmark suffix={-\thetmkcount}
 }
 
-
-\usepackage{comment}
 \usepackage{booktabs}%midrule/toprule/...
 % В шаблоне есть команда \multirowcell, которой нужен этот пакет.
 \usepackage{multirow}
-\usepackage{siunitx} % для таблиц с едлиницами измерений
+\usepackage{siunitx} % для таблиц с единицами измерений
+
 \newcommand{\cd}[1]{\texttt{#1}}
 \newcommand{\inbr}[1]{\left<#1\right>}
 
@@ -39,3 +38,25 @@
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 %\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%  Команды и пакеты, не используемые в шаблоне, которые тем не менее могут быть полезными.
+
+% \newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% \usepackage{mathrsfs}
+
+% \lstdefinelanguage{ocaml}{
+% keywords={@type, function, fun, let, in, match, with, when, class, type,
+% nonrec, object, method, of, rec, repeat, until, while, not, do, done, as, val, inherit, and,
+% new, module, sig, deriving, datatype, struct, if, then, else, open, private, virtual, include, success, failure,
+% lazy, assert, true, false, end},
+% sensitive=true,
+% commentstyle=\small\itshape\ttfamily,
+% keywordstyle=\ttfamily\bfseries, %\underbar,
+% identifierstyle=\ttfamily,
+% basewidth={0.5em,0.5em},
+% columns=fixed,
+% fontadjust=true,
+% literate={->}{{$\to$}}3 {===}{{$\equiv$}}1 {=/=}{{$\not\equiv$}}1 {|>}{{$\triangleright$}}3 {\\/}{{$\vee$}}2 {/\\}{{$\wedge$}}2 {>=}{{$\ge$}}1 {<=}{{$\le$}} 1,
+% morecomment=[s]{(*}{*)}
+% }
