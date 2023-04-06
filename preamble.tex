@@ -70,10 +70,18 @@ fontadjust=true,
 \expandafter\mathchardef\expandafter\varphi\number\expandafter\phi\expandafter\relax
 \expandafter\mathchardef\expandafter\phi\number\varphi
 
+% TODO: Can we get rid of this?
 %https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
 \newcommand\blfootnote[1]{%
 	\begingroup
 	\renewcommand\thefootnote{}\footnote{#1}%
 	\addtocounter{footnote}{-1}%
 	\endgroup
+}
+
+\fancypagestyle{withCompileDate}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \fancyfoot[R]{\small Дата сборки: \today}
+  \renewcommand{\headrulewidth}{0pt}
 }
