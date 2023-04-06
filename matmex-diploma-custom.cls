@@ -49,28 +49,41 @@
 \usepackage{fancyhdr}
 \usepackage{ifthen}
 
-
+%% Мы используем компилятор XeLaTex или LuaLaTeX, который дружит с Unicode и 
+%% True Type/Open Type шрифтами. Попытка собрать чем-то другим приведет к 
+%% страшным и непонятным ошибкам, поэтому упадём с понятным сообщением.
 \usepackage{iftex}
 \ifXeTeX
-  %% Мы используем компилятор XeLaTex, который дружит с Unicode и True Type/Open Type
-  %% шрифтами. Для русификации достаточно подключить пакет fontspec и
-  %% выбрать Unicode шрифт в котором есть кириллические глифы. Ниже
-  %% основным шрифтом выбирается Unicode версия шрифта Computer Modern с заcечками
-  \usepackage{fontspec}
-  \setmainfont[Mapping=tex-text]{CMU Serif}
-  \setmonofont[Mapping=tex-text]{CMU Typewriter Text}
-  %\setmonofont{Fira Code}[Contextuals=Alternate,Scale=0.9]
-  %\setmonofont{Inconsolata}
-  %\newfontfamily\cyrillicfont{CMU Serif}
-  %% В XeLaTex заменой известного пакета babel является пакет polyglossia.
-  %% Теперь у нас будут переносы слов
-  \usepackage{polyglossia}
-  \setdefaultlanguage{russian}
-  \setotherlanguage{english}
 \else
-  \PackageError{mypackage}{use XeLaTeX}{}
+\ifLuaTeX
+\else
+    %% https://github.com/latex3/iftex/blob/a36f09ed85c47dfd8ab59ae2cc0a8c9fb99c73e1/iftex.sty#L44
+    \newlinechar 64\relax
+    \errorcontextlines -1\relax
+    \immediate\write20{@
+        ***********************************************************@
+        * XeLaTex or LuaLaTex is required to compile this document.@
+        * Sorry!@
+        ***********************************************************}%
+    \batchmode\read -1 to \@tempa
+\fi
 \fi
 
+%% Для русификации достаточно подключить пакет fontspec и
+%% выбрать Unicode шрифт в котором есть кириллические глифы. Ниже
+%% основным шрифтом выбирается Unicode версия шрифта Computer Modern с заcечками
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+\setmonofont{CMU Typewriter Text}
+%\setmonofont{Fira Code}[Contextuals=Alternate,Scale=0.9]
+%\setmonofont{Inconsolata}
+% \newfontfamily\cyrillicfont{CMU Serif}
+
+%% В XeLaTex заменой известного пакета babel является пакет polyglossia.
+%% Теперь у нас будут переносы слов
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
 
 % \addto\captionsrussian{%
 %   \renewcommand{\figurename}{Рис.}%
