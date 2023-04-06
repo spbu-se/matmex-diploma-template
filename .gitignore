@@ -12,4 +12,4 @@
 *.fls
 /.aspell*
 /*.synctex.gz
-
+*.fdb_latexmk
