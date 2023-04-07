@@ -49,8 +49,8 @@
 \usepackage{fancyhdr}
 \usepackage{ifthen}
 
-%% Мы используем компилятор XeLaTex или LuaLaTeX, который дружит с Unicode и 
-%% True Type/Open Type шрифтами. Попытка собрать чем-то другим приведет к 
+%% Мы используем компилятор XeLaTex или LuaLaTeX, который дружит с Unicode и
+%% True Type/Open Type шрифтами. Попытка собрать чем-то другим приведет к
 %% страшным и непонятным ошибкам, поэтому упадём с понятным сообщением.
 \usepackage{iftex}
 \ifXeTeX
@@ -74,12 +74,13 @@
 %% основным шрифтом выбирается Unicode версия шрифта Computer Modern с заcечками
 \usepackage{fontspec}
 \setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
 \setmonofont{CMU Typewriter Text}
 %\setmonofont{Fira Code}[Contextuals=Alternate,Scale=0.9]
 %\setmonofont{Inconsolata}
 % \newfontfamily\cyrillicfont{CMU Serif}
 
-%% В XeLaTex заменой известного пакета babel является пакет polyglossia.
+%% В XeLaTex или LuaLaTeX альтернативой известного пакета babel является пакет polyglossia.
 %% Теперь у нас будут переносы слов
 \usepackage{polyglossia}
 \setdefaultlanguage{russian}
@@ -90,8 +91,6 @@
 %   \renewcommand{\tablename}{Табл.}%
 % }
 
-%% Отступ в первом абзаце
-\usepackage{indentfirst}
 %% Гиперссылки
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,filecolor=black,citecolor=black]{hyperref}
 
@@ -213,14 +212,14 @@
         \vskip 1em
         {\large
             \ifthenelse{\equal{\my@title@type@ru}{production}}
-                {Отчет по производственной практике}
+                {Отчёт по производственной практике}
                 {\ifthenelse{\equal{\my@title@type@ru}{coursework}}
                     {Отчёт по курсовой работе}
                     {\ifthenelse{\equal{\my@title@type@ru}{practice}}
                         {Отчёт по учебной практике}
                         {Отчёт по преддипломной практике}
                     }
-                }
+                }\\
             \ifthenelse{\equal{\my@title@kind@ru}{solution}}
                 {в форме <<Решение>>}
                 {\ifthenelse{\equal{\my@title@kind@ru}{experiment}}
