@@ -119,7 +119,6 @@
 \renewcommand\lstlistlistingname{Листинги}
 % Отступ перед подписью листинга
 \DeclareCaptionFormat{listing}{
-    % TODO: try to use something like \indent instead of hardcoded value
     \hspace{15pt}#1#2#3
 }
 \captionsetup[lstlisting]{
@@ -135,9 +134,15 @@ commentstyle=\scriptsize\rmfamily,
 basewidth={0.5em,0.5em},
 fontadjust=true,
 }
-% TODO: minted vs. listings
-% \usepackage[kpsewhich,newfloat]{minted}
-% \usemintedstyle{vs}
+\usepackage[kpsewhich,newfloat]{minted}
+\usemintedstyle{bw}
+\SetupFloatingEnvironment{listing}{name=Листинг}
+\SetupFloatingEnvironment{listing}{listname=Листинги}
+\captionsetup[listing]{
+  format=listing,
+  margin=0pt,
+  font={bf}
+}
 
 %% Текст
 \usepackage[inline]{enumitem} % Настройка списков, а так же "строчные" списки

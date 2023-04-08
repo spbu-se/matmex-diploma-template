@@ -3,7 +3,12 @@
 % Опциональные добавления используемых пакетов. Вполне может быть, что они вам не понадобятся, но в шаблоне приведены примеры их использования.
 \usepackage{tikz} % Мощный пакет для создание рисунков, однако может очень сильно замедлять компиляцию
 \usetikzlibrary{decorations.pathreplacing,calc,shapes,positioning,tikzmark}
-% TODO: Should we use tikz-externalize?
+
+% Библиотека для TikZ, которая генерирует отдельные файлы для каждого рисунка
+% Позволяет ускорить компиляцию, однако имеет свои ограничения
+% Например, ломает пример выделения кода в листинге из шаблона
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=figures/]
 
 \newcounter{tmkcount}
 
@@ -18,7 +23,7 @@
   tikzmark suffix={-\thetmkcount}
 }
 
-\usepackage{booktabs}%midrule/toprule/...
+\usepackage{booktabs} % Пакет для верстки "более книжных" таблиц, вполне годится для оформления результатов
 % В шаблоне есть команда \multirowcell, которой нужен этот пакет.
 \usepackage{multirow}
 \usepackage{siunitx} % для таблиц с единицами измерений
@@ -26,7 +31,7 @@
 \newcommand{\cd}[1]{\texttt{#1}}
 \newcommand{\inbr}[1]{\left<#1\right>}
 
-% TODO: Объяснить почему английские слова пишутся через \textsc{}
+% Для названий стоит использовать \textsc{}
 \newcommand{\OCaml}{\textsc{OCaml}}
 \newcommand{\miniKanren}{\textsc{miniKanren}}
 \newcommand{\BibTeX}{\textsc{BibTeX}}

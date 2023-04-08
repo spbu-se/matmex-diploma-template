@@ -51,20 +51,20 @@
 % \resizebox{\linewidth}{!}{%
     \caption{Производительность какого-то алгоритма при различных разрешениях картинок  (меньше~--- лучше), в мс.,  CI=0.95. За пример таблички кидаем чепчики в честь Я.~Кириленко}
     \begin{tabular}[C]{
-    |S[table-format=4.4,output-decimal-marker=\times]
-    *4{|S
+    S[table-format=4.4,output-decimal-marker=\times]
+    *4{S
           [table-figures-uncertainty=2, separate-uncertainty=true, table-align-uncertainty=true,
           table-figures-integer=3, table-figures-decimal=2, round-precision=2,
           table-number-alignment=center]
           }
-    |}
+    }
     \toprule
-        \multicolumn{1}{|c|}{Resolution} & \multicolumn{1}{c|}{\textsc{TENG}} & \multicolumn{1}{c|}{\textsc{LAPM}} &
-        \multicolumn{1}{|c|}{\textsc{VOLL4}} \\ \hline
-        1920.1080 & 406.23 \pm 0.94 & 134.06 \pm 0.35 & 207.45 \pm 0.42  \\ \hline
-        1024.768  & 145.0 \pm 0.47  & 39.68 \pm 0.1   &  52.79  \pm 0.1 \\ \hline
-        464.848   & 70.57 \pm 0.2   & 19.86 \pm 0.01     & 32.75  \pm 0.04 \\ \hline
-        640.480   & 51.10 \pm 0.2   & 14.70 \pm 0.1 & 24  \pm 0.04 \\ \hline
+        \multicolumn{1}{r}{Resolution} & \multicolumn{1}{r}{\textsc{TENG}} & \multicolumn{1}{r}{\textsc{LAPM}} &
+        \multicolumn{1}{r}{\textsc{VOLL4}} \\ \midrule
+        1920.1080 & 406.23 \pm 0.94 & 134.06 \pm 0.35 & 207.45 \pm 0.42  \\ \midrule
+        1024.768  & 145.0 \pm 0.47  & 39.68 \pm 0.1   &  52.79  \pm 0.1 \\ \midrule
+        464.848   & 70.57 \pm 0.2   & 19.86 \pm 0.01     & 32.75  \pm 0.04 \\ \midrule
+        640.480   & 51.10 \pm 0.2   & 14.70 \pm 0.1 & 24  \pm 0.04 \\ \midrule
         160.120   & 2.4 \pm 0.02    & 0.67 \pm 0.01      & 0.92  \pm 0.01 \\
         \bottomrule
     \end{tabular}%
