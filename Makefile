@@ -1,7 +1,7 @@
 NAME ?= vkr
 ENGINE ?= xelatex # Only `xelatex` or `lualatex` are allowed here
 
-.PHONY: $(NAME).pdf clean dist-clean depext depext-deb
+.PHONY: $(NAME).pdf clean dist-clean format depext depext-deb
 
 all: $(NAME).pdf
 
@@ -13,6 +13,9 @@ clean:
 
 dist-clean:
 	latexmk -C $(NAME).tex
+
+format:
+	$(foreach file, $(shell find . -name "*.tex" -o -name "*.bib" -o -name "*.cls"), latexindent -l -s -o=$(file) -m $(file);)
 
 aspell:
 	aspell --mode=tex -l ru --home-dir=. --personal=personal_dict.txt  -c $(FILE)
