@@ -1,90 +1,63 @@
 % !TeX spellcheck = ru_RU
 % !TEX root = vkr.tex
-% Основные необходимые пакеты и команды.
+% Опциональные добавления используемых пакетов. Вполне может быть, что они вам не понадобятся, но в шаблоне приведены примеры их использования.
+\usepackage{tikz} % Мощный пакет для создание рисунков, однако может очень сильно замедлять компиляцию
+\usetikzlibrary{decorations.pathreplacing,calc,shapes,positioning,tikzmark}
+% TODO: Should we use tikz-externalize?
 
-% TODO: Основные пакеты должны быть в класс-файле?
-%%% Пакеты
-%% Графика
-\usepackage[table]{xcolor} % Работа с цветами
-\usepackage{graphicx} % Вставка графики в текст (изображения, в т.ч. pdf)
-\graphicspath{ {figures/} } % Задает папку по-умолчанию для графики
+\newcounter{tmkcount}
 
-\usepackage{wrapfig2} % Позволяет вставлять графику, обтекаемую текстом
-\usepackage{caption} % Настройка подписей "не текста"
-\usepackage{subcaption} % Подписи для разделенного "не текста"
-
-%% Математика
-\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
-\usepackage{thmtools} % Мощный пакет для работы с математическими окружениями типа "теорема"
-\usepackage{thm-restate} % Дополнение к предыдущему пакету, позволяющее повторять теоремы
-
-%% Таблицы
-\usepackage{tabularx} % Добавляет столбец типа "X", который автоматически занимает максимально возможное место
-\usepackage{makecell} % Позволяет кастомизировать ячейки таблицы
-
-%% Код
-\usepackage{listings} % Позволяет вставлять код в документ
-% Перевод заголовков в листингах
-\renewcommand\lstlistingname{Листинг}
-\renewcommand\lstlistlistingname{Листинги}
-% Отступ перед подписью листинга
-\DeclareCaptionFormat{listing}{
-    % TODO: try to use something like \indent instead of hardcoded value
-    \hspace{15pt}#1#2#3
-}
-\captionsetup[lstlisting]{
-  format=listing,
-  margin=0pt,
-  font={bf}
-}
-\lstset{
-mathescape=true,
-identifierstyle=\ttfamily,
-keywordstyle=\bfseries,
-commentstyle=\scriptsize\rmfamily,
-basewidth={0.5em,0.5em},
-fontadjust=true,
-}
-% TODO: minted vs. listings
-% \usepackage[kpsewhich,newfloat]{minted}
-% \usemintedstyle{vs}
-
-%% Текст
-\usepackage[inline]{enumitem} % Настройка списков, а так же "строчные" списки
-% \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-% \setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-
-\usepackage[useregional]{datetime2} % Форматирование дат
-\usepackage[normalem]{ulem} % Дополнительные варианты форматирования текста, например подчеркивание или зачеркивание
-\usepackage{microtype} % Полезные типографические ништячки, по-хорошему требует LuaLaTeX
-\usepackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
-
-% TODO: Do we really need these packages?
-% \usepackage{ragged2e}
-
-
-%% Разное
-\usepackage{afterpage} % Выполнение команд после разрыва страниц
-\usepackage{pdflscape} % Правильное отображение альбомной страницы в pdf файле
-
-%%% Команды
-% Смена \phi и \varphi
-% https://tex.stackexchange.com/a/50365/171947
-\expandafter\mathchardef\expandafter\varphi\number\expandafter\phi\expandafter\relax
-\expandafter\mathchardef\expandafter\phi\number\varphi
-
-% TODO: Can we get rid of this?
-%https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
-\newcommand\blfootnote[1]{%
-	\begingroup
-	\renewcommand\thefootnote{}\footnote{#1}%
-	\addtocounter{footnote}{-1}%
-	\endgroup
+\tikzset{
+  use tikzmark/.style={
+    remember picture,
+    overlay,
+    execute at end picture={
+      \stepcounter{tmkcount}
+    },
+  },
+  tikzmark suffix={-\thetmkcount}
 }
 
-\fancypagestyle{withCompileDate}{%
-  \fancyhf{}
-  \fancyfoot[C]{\thepage}
-  \fancyfoot[R]{\small Дата сборки: \today}
-  \renewcommand{\headrulewidth}{0pt}
-}
+\usepackage{booktabs}%midrule/toprule/...
+% В шаблоне есть команда \multirowcell, которой нужен этот пакет.
+\usepackage{multirow}
+\usepackage{siunitx} % для таблиц с единицами измерений
+
+\newcommand{\cd}[1]{\texttt{#1}}
+\newcommand{\inbr}[1]{\left<#1\right>}
+
+% TODO: Объяснить почему английские слова пишутся через \textsc{}
+\newcommand{\OCaml}{\textsc{OCaml}}
+\newcommand{\miniKanren}{\textsc{miniKanren}}
+\newcommand{\BibTeX}{\textsc{BibTeX}}
+\newcommand{\vsharp}{\textsc{V$\sharp$}}
+\newcommand{\fsharp}{\textsc{F$\sharp$}}
+\newcommand{\csharp}{\textsc{C$\sharp$}}
+\newcommand{\GitHub}{\textsc{GitHub}}
+\newcommand{\SMT}{\textsc{SMT}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%  Команды и пакеты, не используемые в шаблоне, которые тем не менее могут быть полезными.
+
+% \newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% \usepackage{mathrsfs}
+
+% \lstdefinelanguage{ocaml}{
+% keywords={@type, function, fun, let, in, match, with, when, class, type,
+% nonrec, object, method, of, rec, repeat, until, while, not, do, done, as, val, inherit, and,
+% new, module, sig, deriving, datatype, struct, if, then, else, open, private, virtual, include, success, failure,
+% lazy, assert, true, false, end},
+% sensitive=true,
+% commentstyle=\small\itshape\ttfamily,
+% keywordstyle=\ttfamily\bfseries, %\underbar,
+% identifierstyle=\ttfamily,
+% basewidth={0.5em,0.5em},
+% columns=fixed,
+% fontadjust=true,
+% literate={->}{{$\to$}}3 {===}{{$\equiv$}}1 {=/=}{{$\not\equiv$}}1 {|>}{{$\triangleright$}}3 {\\/}{{$\vee$}}2 {/\\}{{$\wedge$}}2 {>=}{{$\ge$}}1 {<=}{{$\le$}} 1,
+% morecomment=[s]{(*}{*)}
+% }

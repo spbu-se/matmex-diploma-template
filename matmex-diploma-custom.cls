@@ -91,6 +91,89 @@
 %   \renewcommand{\tablename}{Табл.}%
 % }
 
+% Основные необходимые пакеты и команды.
+
+%%% Пакеты
+%% Графика
+\usepackage[table]{xcolor} % Работа с цветами
+\usepackage{graphicx} % Вставка графики в текст (изображения, в т.ч. pdf)
+\graphicspath{ {figures/} } % Задает папку по-умолчанию для графики
+
+\usepackage{wrapfig2} % Позволяет вставлять графику, обтекаемую текстом
+\usepackage{caption} % Настройка подписей "не текста"
+\usepackage{subcaption} % Подписи для разделенного "не текста"
+
+%% Математика
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
+\usepackage{thmtools} % Мощный пакет для работы с математическими окружениями типа "теорема"
+\usepackage{thm-restate} % Дополнение к предыдущему пакету, позволяющее повторять теоремы
+
+%% Таблицы
+\usepackage{tabularx} % Добавляет столбец типа "X", который автоматически занимает максимально возможное место
+\usepackage{makecell} % Позволяет кастомизировать ячейки таблицы
+
+%% Код
+\usepackage{listings} % Позволяет вставлять код в документ
+% Перевод заголовков в листингах
+\renewcommand\lstlistingname{Листинг}
+\renewcommand\lstlistlistingname{Листинги}
+% Отступ перед подписью листинга
+\DeclareCaptionFormat{listing}{
+    % TODO: try to use something like \indent instead of hardcoded value
+    \hspace{15pt}#1#2#3
+}
+\captionsetup[lstlisting]{
+  format=listing,
+  margin=0pt,
+  font={bf}
+}
+\lstset{
+mathescape=true,
+identifierstyle=\ttfamily,
+keywordstyle=\bfseries,
+commentstyle=\scriptsize\rmfamily,
+basewidth={0.5em,0.5em},
+fontadjust=true,
+}
+% TODO: minted vs. listings
+% \usepackage[kpsewhich,newfloat]{minted}
+% \usemintedstyle{vs}
+
+%% Текст
+\usepackage[inline]{enumitem} % Настройка списков, а так же "строчные" списки
+% \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+% \setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+\usepackage[useregional]{datetime2} % Форматирование дат
+\usepackage[normalem]{ulem} % Дополнительные варианты форматирования текста, например подчеркивание или зачеркивание
+\usepackage{microtype} % Полезные типографические ништячки, по-хорошему требует LuaLaTeX
+\usepackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
+
+%% Разное
+\usepackage{afterpage} % Выполнение команд после разрыва страниц
+\usepackage{pdflscape} % Правильное отображение альбомной страницы в pdf файле
+
+%%% Команды
+% Смена \phi и \varphi
+% https://tex.stackexchange.com/a/50365/171947
+\expandafter\mathchardef\expandafter\varphi\number\expandafter\phi\expandafter\relax
+\expandafter\mathchardef\expandafter\phi\number\varphi
+
+%https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+\fancypagestyle{withCompileDate}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \fancyfoot[R]{\small Дата сборки: \today}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
 %% Гиперссылки
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,filecolor=black,citecolor=black]{hyperref}
 
