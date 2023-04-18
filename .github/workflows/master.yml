@@ -10,6 +10,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
+      - run: sudo apt-get update
       - run: make depext-deb
 
       - run: make
