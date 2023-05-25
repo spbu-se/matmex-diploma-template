@@ -1,6 +1,6 @@
 ## Как это использовать
 
-* Рекомендованный @yurii-litvinov способ: использовать [Overleaf](https://www.overleaf.com/) или [Papeeria](https://papeeria.com/)
+* Стандартный способ: использовать [Overleaf](https://www.overleaf.com/) или [Papeeria](https://papeeria.com/)
   * Загружаете файлы шаблона в проект с сохранением структуры папок
   * Выбираете в качестве компилятора XeTeX (или LuaTeX) (например, в Overleaf это Menu -> Compiler)
 * Рекомендовано @Kakadu: поставить дистрибутив TeX на desktop (например, [TeXLive](https://www.tug.org/texlive))
