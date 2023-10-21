@@ -68,7 +68,8 @@
 Это обывает полезно в текста, а ещё чаще~--- в презентациях. Пример сделан на основе вопроса на \textsc{StackOveflow}\footnote{\url{https://tex.stackexchange.com/questions/284311} (дата доступа:   \DTMdate{2022-12-16}).}.
 
 \begin{figure}
-\begin{lstlisting}[escapechar=!,basicstyle=\ttfamily, language=c]
+% TODO(Kakadu): Сделать \lstset глобально, чтобы не выписывать все опции листингов каждый раз
+\begin{lstlisting}[escapechar=!, basicstyle=\ttfamily, language=c, keepspaces=true]
 #include <stdio.h>
 #include <math.h>
 
@@ -77,6 +78,7 @@ int main(void)
   double c = -1;
   double z = 0;
 
+  (* Это комментарий на русском языке *)
   printf ("For c = %lf:\n", c);
   for (int i=0; i<10; i++ ) {
     printf ( !\tikzmark{a}!"z %d = %lf\n"!\tikzmark{b}!, i, z);
