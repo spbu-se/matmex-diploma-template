@@ -23,6 +23,18 @@ make ENGINE=lualatex
 
 Кроме того, `make` знает команды `clean` и `dist-clean`.
 Первая из них удалит все временные файлы, а вторая в дополнение к этому удалит и сгенерированный pdf файл.
+
+## Особенности сборки под mac
+ставим Mactex, действуя согласно [ссылке](https://mathjiajia.github.io/vscode-and-latex/)
+```sh
+ln -s /usr/local/texlive/2023/texmf-dist/fonts/opentype/ ~/Library/Fonts/texlive-opentype &&
+pip3 install pygments
+```
+Далее
+```sh
+make
+```
+
 #### TODO
 
 * перевод на русский в списке литературы: online, accessed и т.д.
