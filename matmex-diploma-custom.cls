@@ -292,7 +292,7 @@ fontadjust=true,
 
     \vspace*{0.25\textheight}
 
-    \ifthenelse{\equal{\my@title@type@ru}{coursework} \OR \equal{\my@title@type@ru}{practice} \OR \equal{\my@title@type@ru}{prediploma} \OR \equal{\my@title@type@ru}{prediploma}}
+    \ifthenelse{\equal{\my@title@type@ru}{coursework} \OR \equal{\my@title@type@ru}{practice} \OR \equal{\my@title@type@ru}{production} \OR \equal{\my@title@type@ru}{prediploma}}
     {
         {\Huge \@title}
         \vskip 2em
@@ -401,7 +401,7 @@ fontadjust=true,
 
         \vspace*{0.25\textheight}
 
-        \ifthenelse{\equal{\my@title@type@en}{coursework} \OR \equal{\my@title@type@en}{practice} \OR \equal{\my@title@type@en}{prediploma}}
+        \ifthenelse{\equal{\my@title@type@en}{coursework} \OR \equal{\my@title@type@en}{practice} \OR \equal{\my@title@type@en}{production} \OR \equal{\my@title@type@en}{prediploma}}
         {
             {\Large\textbf{\textit{\my@title@author@en}}}
             \vskip 2em
