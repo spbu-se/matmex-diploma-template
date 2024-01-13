@@ -147,7 +147,7 @@ lookForPreamble:
 preambleCommandsBeforeEnvironments: 0
 
 # default value of indentation
-defaultIndent: "\t"
+defaultIndent: "    "
 
 # remove trailing whitespace from all lines
 removeTrailingWhitespace:
@@ -327,8 +327,8 @@ noAdditionalIndent:
 # then you can populate them in indentRules; for example, you might just want
 # to use a space " " or maybe a double tab "\t\t"
 indentRules:
-   myenvironment: "\t\t"
-   anotherenvironment: "\t\t\t\t"
+   myenvironment: "        "
+   anotherenvironment: "                "
    chapter: " "
    section: " "
    item: "      "

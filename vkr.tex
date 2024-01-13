@@ -19,37 +19,30 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 
-% В курсаче/практике/ВКР не нужен
-% \begin{abstract}
-% \end{abstract}
-
 \pagebreak
 \newfontfamily\myfont{CMU Sans Serif}
 \begin{center}
-  \hspace{0pt}
-  \vfill
-  {\Huge\myfont
-    Текст ВКР или учебной практики пишется не ради зачета, а чтобы люди его прочитали, поняли как круто Вы все сделали, и могли продолжить с того места, где Вы остановились.
-  \vspace{2em}
+    \hspace{0pt}
+    \vfill
+    {\Huge\myfont
+        Текст ВКР или учебной практики пишется не ради зачета, а чтобы люди его прочитали, поняли как круто Вы все сделали, и могли продолжить с того места, где Вы остановились.
+        \vspace{2em}
 
-  Повторять эту страницу в тексте вашей работы \emph{нельзя}.}
-  \vfill
-  \hspace{0pt}
+        Повторять эту страницу в тексте вашей работы \emph{нельзя}.}
+    \vfill
+    \hspace{0pt}
 \end{center}
 \pagebreak
 
 \input{000_intro}
 \input{010_task}
 \input{020_related}
-\input{030_background}
-\input{040_method}
-\input{050_experiment}
-\input{060_use}
-\input{070_threatsOfCorrectnessViolation}
-\input{080_implementation.tex}
-\input{090_conclusion}
+\input{030_solution}
+\input{040_experiment}
+\input{050_conclusion}
 
 \setmonofont{CMU Typewriter Text}
 \bibliographystyle{ugost2008ls}
 \bibliography{vkr}
+
 \end{document}
