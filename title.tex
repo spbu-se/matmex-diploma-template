@@ -41,26 +41,13 @@
     specialty          = {02.03.03 <<Математическое обеспечение и администрирование информационных систем>>},
     %
     %% Актуально только для ВКР. Указывается шифр и название образовательной программы. Типичные примеры:
-    %%   СВ.5006.2017 <<Математическое обеспечение и администрирование информационных систем>>
     %%   СВ.5162.2020 <<Технологии программирования>>
-    %%   СВ.5080.2017 <<Программная инженерия>>
-    %%   ВМ.5665.2019 <<Математическое обеспечение и администрирование информационных систем>>
-    %%   ВМ.5666.2019 <<Программная инженерия>>
+    %%   СВ.5080.2020 <<Программная инженерия>>
+    %%   ВМ.5665.2022 <<Математическое обеспечение и администрирование информационных систем>>
+    %%   ВМ.5666.2022 <<Программная инженерия>>
     %% Шифр и название программы можно посмотреть в учебном плане, по которому вы учитесь.
     %% СВ.* --- бакалавриат, ВМ.* --- магистратура. В конце --- год поступления (не обязательно ваш, если вы были в академе/вылетали).
-    programme          = {СВ.5006.2019 <<Математическое обеспечение и администрирование информационных систем>>},
-    %
-    %% Актуально только для ВКР, только для матобеса и только 2017-2018 годов поступления. Указывается профиль подготовки, на котором вы учитесь.
-    %% Названия профилей можно найти в учебном плане в списке дисциплин по выбору. На каком именно вы, вам должны были сказать после второго курса (можно уточнить в студотделе).
-    %% Вот возможные вариканты:
-    %%   Математические основы информатики
-    %%   Информационные системы и базы данных
-    %%   Параллельное программирование
-    %%   Системное программирование
-    %%   Технология программирования
-    %%   Администрирование информационных систем
-    %%   Реинжиниринг программного обеспечения
-    % profile            = {Системное программирование},
+    programme          = {СВ.5162.2020 <<Технологии программирования>>},
     %
     %% Актуально всем.
     %% Должно умещаться в одну строчку, допускается использование сокращений, но без переусердствования,
@@ -70,7 +57,7 @@
     supervisorPosition = {доцент кафедры системного программирования, к.~ф.-м.~н. (если есть),},
     supervisor         = {Научник~Н.~Н.},
     %
-    %% Актуально только для практик и курсовых. Если консультанта нет, закомментировать или удалить вовсе.
+    %% Актуально только для практик и курсовых. Если консультанта нет или он совпадает с научником, закомментировать или удалить вовсе.
     consultantPosition = {должность, ООО <<Место работы>>, степень  (если есть),},
     consultant         = {Консультант~К.~К.},
     %
@@ -79,50 +66,40 @@
     reviewer           = {Рецензент~Р.~Р.},
 }
 
-% \filltitle{en}{
-%     chair              = {Advisor's chair},
-%     group              = {ХХ.BХХ-mm},
-%     title              = {Template for SPbU qualification works},
-%     type               = {practice},
-%     author             = {FirstName Surname},
-%     %
-%     %% Possible choices:
-%     %%   02.03.03 <<Software and Administration of Information Systems>>
-%     %%   02.04.03 <<Software and Administration of Information Systems>>
-%     %%   09.03.04 <<Software Engineering>>
-%     %%   09.04.04 <<Software Engineering>>
-%     %% Те, что с 03 в середине --- бакалавриат, с 04 --- магистратура.
-%     specialty          = {02.03.03 ``Software and Administration of Information Systems''},
-%     %
-%     %% Possible choices:
-%     %%   СВ.5006.2017 <<Software and Administration of Information Systems>>
-%     %%   СВ.5162.2020 <<Programming Technologies>>
-%     %%   СВ.5080.2017 <<Software Engineering>>
-%     %%   ВМ.5665.2019 <<Software and Administration of Information Systems>>
-%     %%   ВМ.5666.2019 <<Software Engineering>>
-%     programme          = {СВ.5006.2019 ``Software and Administration of Information Systems''},
-%     %
-%     %% Possible choices:
-%     %%   Mathematical Foundations of Informatics
-%     %%   Information Systems and Databases
-%     %%   Parallel Programming
-%     %%   System Programming
-%     %%   Programming Technology
-%     %%   Information Systems Administration
-%     %%   Software Reengineering
-%     % profile            = {Software Engineering},
-%     %
-%     %% Note that common title translations are:
-%     %%   кандидат наук --- C.Sc. (NOT Ph.D.)
-%     %%   доктор ... наук --- Sc.D.
-%     %%   доцент --- docent (NOT assistant/associate prof.)
-%     %%   профессор --- prof.
-%     supervisorPosition = {Sc.D, prof.},
-%     supervisor         = {S.S. Supervisor},
-%     %
-%     consultantPosition = {position at ``Company'', degree if present},
-%     consultant         = {C.C. Consultant},
-%     %
-%     reviewerPosition   = {position at ``Company'', degree if present},
-%     reviewer           = {R.R. Reviewer},
-% }
+% Английский титульник нужен только для ВКР, остальные виды работ могут его смело игнорировать.
+\filltitle{en}{
+    chair              = {Advisor's chair},
+    group              = {ХХ.BХХ-mm},
+    title              = {Template for SPbU qualification works},
+    type               = {bachelor},
+    author             = {FirstName Surname},
+    %
+    %% Possible choices:
+    %%   02.03.03 <<Software and Administration of Information Systems>>
+    %%   02.04.03 <<Software and Administration of Information Systems>>
+    %%   09.03.04 <<Software Engineering>>
+    %%   09.04.04 <<Software Engineering>>
+    %% Те, что с 03 в середине --- бакалавриат, с 04 --- магистратура.
+    specialty          = {02.03.03 ``Software and Administration of Information Systems''},
+    %
+    %% Possible choices:
+    %%   СВ.5162.2020 <<Programming Technologies>>
+    %%   СВ.5080.2020 <<Software Engineering>>
+    %%   ВМ.5665.2022 <<Software and Administration of Information Systems>>
+    %%   ВМ.5666.2022 <<Software Engineering>>
+    programme          = {СВ.5162.2020 ``Programming Technologies''},
+    %
+    %% Note that common title translations are:
+    %%   кандидат наук --- C.Sc. (NOT Ph.D.)
+    %%   доктор ... наук --- Sc.D.
+    %%   доцент --- docent (NOT assistant/associate prof.)
+    %%   профессор --- prof.
+    supervisorPosition = {Sc.D, prof.},
+    supervisor         = {S.S. Supervisor},
+    %
+    consultantPosition = {position at ``Company'', degree if present},
+    consultant         = {C.C. Consultant},
+    %
+    reviewerPosition   = {position at ``Company'', degree if present},
+    reviewer           = {R.R. Reviewer},
+}

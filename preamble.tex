@@ -13,14 +13,14 @@
 \newcounter{tmkcount}
 
 \tikzset{
-  use tikzmark/.style={
-    remember picture,
-    overlay,
-    execute at end picture={
-      \stepcounter{tmkcount}
-    },
-  },
-  tikzmark suffix={-\thetmkcount}
+    use tikzmark/.style={
+            remember picture,
+            overlay,
+            execute at end picture={
+                    \stepcounter{tmkcount}
+                },
+        },
+    tikzmark suffix={-\thetmkcount}
 }
 
 \usepackage{booktabs} % Пакет для верстки "более книжных" таблиц, вполне годится для оформления результатов
@@ -37,7 +37,7 @@
 \newcommand{\BibTeX}{\textsc{BibTeX}}
 \newcommand{\vsharp}{\textsc{V$\sharp$}}
 \newcommand{\fsharp}{\textsc{F$\sharp$}}
-\newcommand{\csharp}{\textsc{C$\sharp$}}
+\newcommand{\csharp}{\textsc{C\#}}
 \newcommand{\GitHub}{\textsc{GitHub}}
 \newcommand{\SMT}{\textsc{SMT}}
 
@@ -66,7 +66,6 @@
 % literate={->}{{$\to$}}3 {===}{{$\equiv$}}1 {=/=}{{$\not\equiv$}}1 {|>}{{$\triangleright$}}3 {\\/}{{$\vee$}}2 {/\\}{{$\wedge$}}2 {>=}{{$\ge$}}1 {<=}{{$\le$}} 1,
 % morecomment=[s]{(*}{*)}
 % }
-
 
 \usepackage{totcount}
 \usepackage{setspace}

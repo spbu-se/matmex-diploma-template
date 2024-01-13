@@ -3,36 +3,38 @@
 * Стандартный способ: использовать [Overleaf](https://www.overleaf.com/) или [Papeeria](https://papeeria.com/)
   * Загружаете файлы шаблона в проект с сохранением структуры папок
   * Выбираете в качестве компилятора XeTeX (или LuaTeX) (например, в Overleaf это Menu -> Compiler)
-* Рекомендовано @Kakadu: поставить дистрибутив TeX на desktop (например, [TeXLive](https://www.tug.org/texlive))
+* Рекомендовано @Kakadu и @yurii-litvinov: поставить дистрибутив TeX на desktop (например, [TeXLive](https://www.tug.org/texlive))
   * К нему редактор TeX Studio (или, например, расширение для VsCode)
   * Съест место на диске, но должно шустрее работать
-  * Позволит использовать пакеты, полагающиеся на сторонние утилиты (например, minted для подстветки листингов)
-
+  * Позволит использовать пакеты, полагающиеся на сторонние утилиты (например, minted для подсветки листингов — впрочем, Overleaf его умеет и сам)
+  * Не лишитесь внезапно диплома, если Overleaf станет по тем или иным причинам недоступен прямо в день дедлайна по загрузке текста
 
 ## Как это собирать
 
-В случае использования локального дистрибутива TeX стандартный способ сборки это использование команды
-```sh
-make
-```
-По-умолчанию, она соберет шаблон с помощью XeTeX.
-В случае, если хочется использовать LuaLaTeX можно либо исправить переменную `ENGINE` в Makefile, либо вызывать `make` следующим образом:
-```sh
-make ENGINE=lualatex
-```
+В случае использования локального дистрибутива TeX:
+- под Linux стандартный способ сборки — это использование команды
+    ```sh
+    make
+    ```
+    По умолчанию, она соберет шаблон с помощью XeTeX.
+    В случае, если хочется использовать LuaLaTeX можно либо исправить переменную `ENGINE` в Makefile, либо вызывать `make` следующим образом:
+    ```sh
+    make ENGINE=lualatex
+    ```
+    Кроме того, `make` знает команды `clean` и `dist-clean`.
+    Первая из них удалит все временные файлы, а вторая в дополнение к этому удалит и сгенерированный pdf файл.
 
-Кроме того, `make` знает команды `clean` и `dist-clean`.
-Первая из них удалит все временные файлы, а вторая в дополнение к этому удалит и сгенерированный pdf файл.
+- под Windows `mingw32-make` или `nmake` тоже справятся, но цели format, depext и depext-deb работать не будут (то есть, вызывать `mingw32-make depext` нет смысла). Можно собирать вручную командой `xelatex --shell-escape vkr.tex`, но, возможно, придётся вызвать её дважды, чтобы правильно проставились ссылки на источники.
+
 #### TODO
 
 * перевод на русский в списке литературы: online, accessed и т.д.
 * сортировка списка литературы (сейчас англоязычные пункты в начале)
 
-
 ##### Тонкости
 
-* A few external packages are required. Use `make depext` to install them (if you use local TeX distribution. No action is needed if you use online editors)
-* File `ugost2008ls.bst` was adopted from [here](https://github.com/anlun/Russian-Phd-LaTeX-Dissertation-Template/tree/master/BibTeX-Styles) because original one from APT package `texlive-lang-cyrillic` gives a weird error:
+* Под Linux требуется несколько дополнительных пакетов. Используйте `make depext`, чтобы их установить (только для локально установленного TeX — для онлайн-редактора ничего делать не нужно)
+* Файл `ugost2008ls.bst` был взят [отсюда](https://github.com/anlun/Russian-Phd-LaTeX-Dissertation-Template/tree/master/BibTeX-Styles), потому что оригинальный из пакета `texlive-lang-cyrillic` даёт странную ошибку:
 
     ```sh
     bibtex "\" can't start a style-file command- ...
