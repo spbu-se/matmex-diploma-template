@@ -13,6 +13,7 @@
 /.aspell*
 /*.synctex.gz
 *.fdb_latexmk
+_minted-*
 
 # Tex Studio files
 *.txss2
