@@ -137,7 +137,6 @@
 
 % Требует Python с пакетом pygmentize, зато позволяет верстать очень годные листинги с синтаксической подсветкой
 \usepackage[kpsewhich,newfloat]{minted}
-\usemintedstyle{bw}
 
 % Запретим minted подсвечивать по его мнению лексические ошибки
 \AtBeginEnvironment{minted}{\dontdofcolorbox}
