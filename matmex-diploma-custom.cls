@@ -421,14 +421,14 @@
                         {Pre-Diploma practice report}
                     }\\
                     \ifthenelse{\equal{\my@title@kind@en}{solution}}
-                    {in a \enquote{Solution} form}
+                    {in a \foreignquote{english}{Solution} form}
                     {\ifthenelse{\equal{\my@title@kind@en}{experiment}}
-                        {in an \enquote{Experiment} form}
+                        {in an \foreignquote{english}{Experiment} form}
                         {\ifthenelse{\equal{\my@title@kind@en}{production}}
-                            {in a \enquote{Production} form}
+                            {in a \foreignquote{english}{Production} form}
                             {\ifthenelse{\equal{\my@title@kind@en}{comparison}}
-                                {in a \enquote{Comparison} form}
-                                {in a \enquote{Theoretical research} form}
+                                {in a \foreignquote{english}{Comparison} form}
+                                {in a \foreignquote{english}{Theoretical research} form}
                             }
                         }
                     }
