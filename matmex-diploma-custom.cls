@@ -315,14 +315,14 @@
                         }
                     }\\
                     \ifthenelse{\equal{\my@title@kind@ru}{solution}}
-                    {в форме <<Решение>>}
+                    {в форме \enquote{Решение}}
                     {\ifthenelse{\equal{\my@title@kind@ru}{experiment}}
-                        {в форме <<Эксперимент>>}
+                        {в форме \enquote{Эксперимент}}
                         {\ifthenelse{\equal{\my@title@kind@ru}{production}}
-                            {в форме <<Производственное задание>>}
+                            {в форме \enquote{Производственное задание}}
                             {\ifthenelse{\equal{\my@title@kind@ru}{comparison}}
-                                {в форме <<Сравнение>>}
-                                {в форме <<Теоретическое исследование>>}
+                                {в форме \enquote{Сравнение}}
+                                {в форме \enquote{Теоретическое исследование}}
                             }
                         }
                     }
@@ -421,14 +421,14 @@
                         {Pre-Diploma practice report}
                     }\\
                     \ifthenelse{\equal{\my@title@kind@en}{solution}}
-                    {in a <<Solution>> form}
+                    {in a \enquote{Solution} form}
                     {\ifthenelse{\equal{\my@title@kind@en}{experiment}}
-                        {in an <<Experiment>> form}
+                        {in an \enquote{Experiment} form}
                         {\ifthenelse{\equal{\my@title@kind@en}{production}}
-                            {in a <<Production>> form}
+                            {in a \enquote{Production} form}
                             {\ifthenelse{\equal{\my@title@kind@en}{comparison}}
-                                {in a <<Comparison>> form}
-                                {in a <<Theoretical research>> form}
+                                {in a \enquote{Comparison} form}
+                                {in a \enquote{Theoretical research} form}
                             }
                         }
                     }
