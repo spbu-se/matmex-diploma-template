@@ -25,7 +25,7 @@ make ENGINE=lualatex
 Первая из них удалит все временные файлы, а вторая в дополнение к этому удалит и сгенерированный pdf файл.
 
 ## Особенности сборки под Mac OS
-ставим Mactex, действуя согласно [ссылке](https://mathjiajia.github.io/vscode-and-latex/)
+Ставим MacTeX, действуя согласно [инструкции](https://mathjiajia.github.io/vscode-and-latex/)
 ```sh
 ln -s /usr/local/texlive/2023/texmf-dist/fonts/opentype/ ~/Library/Fonts/texlive-opentype &&
 pip3 install pygments
