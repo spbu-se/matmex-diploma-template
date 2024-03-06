@@ -7,17 +7,25 @@
 %\documentclass[aspectratio=169]{beamer}
 
 \input{../preamble.tex}
-%\input{../title.tex}
+\makeatletter
 
+\input{../pretitle.tex}
+\input{../title.tex}
+\newcommand{\academicGroup}{\my@title@group@ru}
+\newcommand{\advisorChair}{\my@title@chair@ru}
 % То, что в квадратных скобках, отображается внизу по центру каждого слайда.
-\title[Короткое название]{Полный официальный заголовок квалификационной работы}
-
+\title[Короткое название]{\my@title@title@ru}
 % То, что в квадратных скобках, отображается в левом нижнем углу.
+\author[\my@title@author@ru]{\my@title@author@ru, группа \academicGroup}
 \institute[СПбГУ]{}
+\newcommand{\supervisor}{\my@title@supervisor@ru}
+\newcommand{\supervisorPosition}{\my@title@supervisorPosition@ru}
+\newcommand{\consultant}{\my@title@consultant@ru}
+\newcommand{\consultantPosition}{\my@title@consultantPosition@ru}
+\newcommand{\reviewer}{\my@title@reviewer@ru}
+\newcommand{\reviewerPosition}{\my@title@reviewerPosition@ru}
 
-% То, что в квадратных скобках, отображается в левом нижнем углу.
-\author[Василий Пупкин]{Василий Иванович Пупкин, группа ХХ.БХХ-мм}
-
+\makeatother
 \begin{document}
 {
 \setbeamertemplate{footline}{}
@@ -29,32 +37,33 @@
 \begin{center}
    \begin{tabular}{c}
         \scriptsize{Санкт-Петербургский государственный университет} \\
-        \scriptsize{Кафедра системного программирования}
+        \scriptsize{\advisorChair}
     \end{tabular}
 \titlepage
 \end{center}
 
 \btVFill
 
+
 {\scriptsize
   % У научного руководителя должна быть указана научная степень
-   \textbf{Научный руководитель:} к.ф.-м.н. А.А. Андреев, доцент кафедры системного программирования \\
+  \textbf{Научный руководитель:}  \supervisorPosition ~\supervisor \\
   % Консультанта может и не быть. Должна быть указана должность или ученая степень
-   \textbf{Консультант:}  П.П. Петров, программист ЗАО \enquote{Компания с ну очень-очень-очень длинным названием}\\
-  % Для курсовой не обязателен. Должна быть указана должность или ученая степень
-   \textbf{Рецензент:} д.т.н., проф. И.И. Иванов, исполнительный директор ООО \enquote{Рога и копыта}
- }
+  \textbf{Консультант:}  \consultantPosition ~\consultant \\
+  % Для учебной практики не обязателен. Должна быть указана должность или ученая степень
+  \textbf{Рецензент:} \reviewerPosition ~\reviewer \\
+  % TODO: добавить условие на включение рецензента в зависимости от вида отчета
+}
+\makeatother
 \begin{center}
   \vspace{5pt}
   \scriptsize{Санкт-Петербург\\
-                 2023}
+                 2024}
   \end{center}
-
 \end{frame}
 }
 
-\begin{frame}[fragile]
-  \frametitle{Введение}
+\begin{frame}{Введение}
   \begin{itemize}
     \item Краткий обзор тематики работы (как вариант~--- устно, пока показывается титульный слайд)
     \item Не нужно определять общеизвестные понятия
@@ -156,7 +165,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile]
+\begin{frame}
   \frametitle{Доказательство корректности алгоритма}
   {\tiny Формулировки утверждений. Идеи доказательств проговариваются устно.}
   \begin{rutheorem}[Пифагора: геометрическая формулировка]
@@ -175,7 +184,7 @@
   \end{rutheorem}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}
   \frametitle{Архитектура решения}
   \begin{itemize}
     \item В реализации интересны архитектура, библиотеки, инструменты
