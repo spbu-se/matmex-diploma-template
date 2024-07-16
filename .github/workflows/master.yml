@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: talk
-          path: presentaion/presentation.pdf
+          path: presentation/presentation.pdf
 
       # - name: example-class-relations--svg
       #   uses: dante-ev/latex-action@latest
