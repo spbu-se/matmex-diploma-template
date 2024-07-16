@@ -13,13 +13,23 @@ jobs:
       - run: sudo apt-get update
       - run: make depext-deb
 
-      - run: make
+      - name: build VKR
+        run: make
 
-      - name: Upload PDF file
+      - name: build talk
+        run: make -C presentation
+
+      - name: Upload PDF VKR file
         uses: actions/upload-artifact@v3
         with:
           name: VKR
           path: vkr.pdf
+
+      - name: Upload PDF talk file
+        uses: actions/upload-artifact@v3
+        with:
+          name: talk
+          path: presentaion/presentation.pdf
 
       # - name: example-class-relations--svg
       #   uses: dante-ev/latex-action@latest
