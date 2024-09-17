@@ -10,8 +10,8 @@
 *.pag
 *.toc
 *.xdv
-vkr.pdf
-/presentation/presentation.pdf
+/vkr.pdf
+/talk.pdf
 *.dvi
 *.fls
 /.aspell*
