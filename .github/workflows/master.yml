@@ -14,10 +14,10 @@ jobs:
       - run: make depext-deb
 
       - name: build VKR
-        run: make
+        run: make vkr.pdf
 
       - name: build talk
-        run: make -C presentation
+        run: make talk.pdf
 
       - name: Upload PDF VKR file
         uses: actions/upload-artifact@v3
@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: talk
-          path: presentation/presentation.pdf
+          path: talk.pdf
 
       # - name: example-class-relations--svg
       #   uses: dante-ev/latex-action@latest
