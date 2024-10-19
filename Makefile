@@ -1,15 +1,19 @@
-NAME ?= vkr
+VKR ?= vkr
+TALK ?= talk
 ENGINE ?= xelatex # Only `xelatex` or `lualatex` are allowed here
 
 .PHONY: $(NAME).pdf clean dist-clean format depext depext-deb
+.SUFFIXES: .pdf .tex
 
-all: $(NAME).pdf
+all: $(VKR).pdf $(TALK).pdf
 
-$(NAME).pdf:
-	latexmk -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape $(NAME).tex
+%.pdf: %.tex
+	latexmk -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape $^
 
 clean:
-	latexmk -c $(NAME).tex
+	latexmk -c $(VKR).tex $(TALK).tex
+	@$(RM) *.pdf *.nav *.snm *.vrb *.synctex.gz _
+	@$(RM) -r _minted-*
 
 dist-clean:
 	latexmk -C $(NAME).tex

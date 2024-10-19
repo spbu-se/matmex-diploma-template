@@ -28,9 +28,6 @@
 \usepackage{multirow}
 \usepackage{siunitx} % для таблиц с единицами измерений
 
-\newcommand{\cd}[1]{\texttt{#1}}
-\newcommand{\inbr}[1]{\left<#1\right>}
-
 % Для названий стоит использовать \textsc{}
 \newcommand{\OCaml}{\textsc{OCaml}}
 \newcommand{\miniKanren}{\textsc{miniKanren}}
@@ -41,16 +38,8 @@
 \newcommand{\GitHub}{\textsc{GitHub}}
 \newcommand{\SMT}{\textsc{SMT}}
 
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-%  Команды и пакеты, не используемые в шаблоне, которые тем не менее могут быть полезными.
-
-% \newcolumntype{Y}{>{\centering\arraybackslash}X}
-
-% \usepackage{mathrsfs}
-
+\definecolor{eclipseGreen}{RGB}{63,127,95}
 % \lstdefinelanguage{ocaml}{
 % keywords={@type, function, fun, let, in, match, with, when, class, type,
 % nonrec, object, method, of, rec, repeat, until, while, not, do, done, as, val, inherit, and,
@@ -67,7 +56,38 @@
 % morecomment=[s]{(*}{*)}
 % }
 
+\usepackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
 \usepackage{totcount}
 \usepackage{setspace}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
 
-\definecolor{eclipseGreen}{RGB}{63,127,95}
+\makeatletter
+\@ifclassloaded{beamer}{
+    %%% Обязательные пакеты
+    %% Beamer
+    \usepackage{beamerthemesplit}
+    \usetheme{SPbGU}
+    \beamertemplatenavigationsymbolsempty
+    \usepackage{appendixnumberbeamer}
+
+    %% Локализация
+    \usepackage{fontspec}
+    \setmainfont{CMU Serif}
+    \setsansfont{CMU Sans Serif}
+    \setmonofont{CMU Typewriter Text}
+    %\setmonofont{Fira Code}[Contextuals=Alternate,Scale=0.9]
+    %\setmonofont{Inconsolata}
+
+    %% Графика
+    \usepackage{pdfpages} % Позволяет вставлять многостраничные pdf документы в текст
+
+    % Математические окружения с русским названием
+    \newtheorem{rutheorem}{Теорема}
+    \newtheorem{ruproof}{Доказательство}
+    \newtheorem{rudefinition}{Определение}
+    \newtheorem{rulemma}{Лемма}
+    \usepackage{fancyvrb}
+}
+{}
+\makeatother
+

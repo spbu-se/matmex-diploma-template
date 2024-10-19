@@ -1,0 +1,68 @@
+%!TEX root = vkr.tex
+
+%% Параметры заполнения титульного листа
+\usepackage{xkeyval}
+
+%% Русскоязычный вариант
+\define@key[ru]{mytitle}{chair}{\def\my@title@chair@ru{#1}}
+\define@key[ru]{mytitle}{title}{\def\my@title@title@ru{#1}}
+\define@key[ru]{mytitle}{group}{\def\my@title@group@ru{#1}}
+\define@key[ru]{mytitle}{author}{\def\my@title@author@ru{#1}}
+\define@key[ru]{mytitle}{supervisor}{\def\my@title@supervisor@ru{#1}}
+\define@key[ru]{mytitle}{supervisorPosition}{\def\my@title@supervisorPosition@ru{#1}}
+\define@key[ru]{mytitle}{reviewer}{\def\my@title@reviewer@ru{#1}}
+\define@key[ru]{mytitle}{reviewerPosition}{\def\my@title@reviewerPosition@ru{#1}}
+\define@key[ru]{mytitle}{consultant}{\def\my@title@consultant@ru{#1}}
+\define@key[ru]{mytitle}{consultantPosition}{\def\my@title@consultantPosition@ru{#1}}
+\define@key[ru]{mytitle}{year}{\def\my@title@year@ru{#1}}
+\define@key[ru]{mytitle}{specialty}{\def\my@title@specialty@ru{#1}}
+\define@key[ru]{mytitle}{programme}{\def\my@title@programme@ru{#1}}
+\define@key[ru]{mytitle}{profile}{\def\my@title@profile@ru{#1}}
+\define@choicekey*[ru]{mytitle}{type}{coursework,practice,prediploma,master,bachelor,production}{\def\my@title@type@ru{#1}}
+\define@choicekey*[ru]{mytitle}{kind}{solution,experiment,production,comparison,theoretical}{\def\my@title@kind@ru{#1}}
+
+%% Англоязычный вариант
+\define@key[en]{mytitle}{chair}{\def\my@title@chair@en{#1}}
+\define@key[en]{mytitle}{title}{\def\my@title@title@en{#1}}
+\define@key[en]{mytitle}{group}{\def\my@title@group@en{#1}}
+\define@key[en]{mytitle}{author}{\def\my@title@author@en{#1}}
+\define@key[en]{mytitle}{supervisor}{\def\my@title@supervisor@en{#1}}
+\define@key[en]{mytitle}{supervisorPosition}{\def\my@title@supervisorPosition@en{#1}}
+\define@key[en]{mytitle}{reviewer}{\def\my@title@reviewer@en{#1}}
+\define@key[en]{mytitle}{reviewerPosition}{\def\my@title@reviewerPosition@en{#1}}
+\define@key[en]{mytitle}{consultant}{\def\my@title@consultant@en{#1}}
+\define@key[en]{mytitle}{consultantPosition}{\def\my@title@consultantPosition@en{#1}}
+\define@key[en]{mytitle}{year}{\def\my@title@year@en{#1}}
+\define@key[en]{mytitle}{specialty}{\def\my@title@specialty@en{#1}}
+\define@key[en]{mytitle}{programme}{\def\my@title@programme@en{#1}}
+\define@key[en]{mytitle}{profile}{\def\my@title@profile@en{#1}}
+\define@choicekey*[en]{mytitle}{type}{coursework,practice,prediploma,master,bachelor}{\def\my@title@type@en{#1}}
+\define@choicekey*[en]{mytitle}{kind}{solution,experiment,production,comparison,theoretical}{\def\my@title@kind@en{#1}}
+
+\newcommand{\filltitle}[2]{
+    %% Значения по умолчанию для обоих языков
+    \ifthenelse{\equal{#1}{ru}}
+    {
+        \presetkeys[#1]{mytitle}{
+            year = {\the\year},
+            type = {practice},
+            reviewer = {},
+            consultant = {},
+            profile = {}
+        }{}
+    }
+    {}
+    \ifthenelse{\equal{#1}{en}}
+    {
+        \presetkeys[#1]{mytitle}{
+            year = {\the\year},
+            type = {practice},
+            reviewer = {},
+            consultant = {},
+            profile = {}
+        }{}
+    }
+    {}
+    \setkeys[#1]{mytitle}{#2}
+}
+

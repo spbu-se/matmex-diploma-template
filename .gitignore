@@ -4,16 +4,21 @@
 *.aux
 *.bbl
 *.blg
+*.nav
+*.snm
+*.vrb
 *.pag
 *.toc
 *.xdv
-*.pdf
+/vkr.pdf
+/talk.pdf
 *.dvi
 *.fls
 /.aspell*
-/*.synctex.gz
+*.synctex.gz
 *.fdb_latexmk
 _minted-*
+
 
 # Tex Studio files
 *.txss2
