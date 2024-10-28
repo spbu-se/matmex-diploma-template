@@ -4,8 +4,9 @@
 % !TEX root = talk.tex
 
 \documentclass
-  [aspectratio=1610] % Для защит онлайн лучше использовать разрешение не 4х3
-  {beamer}
+  [ russian
+  , aspectratio=1610 % Для защит онлайн лучше использовать разрешение не 4х3
+  ] {beamer}
 
 
 \input{preamble.tex}
@@ -21,6 +22,7 @@
 % То, что в квадратных скобках, отображается в левом нижнем углу.
 \author[\my@title@author@ru]{\my@title@author@ru, группа \academicGroup}
 \institute[СПбГУ]{}
+\date[9 сентября 2024 г.]{}
 \newcommand{\supervisor}{\my@title@supervisor@ru}
 \newcommand{\supervisorPosition}{\my@title@supervisorPosition@ru}
 \newcommand{\consultant}{\my@title@consultant@ru}
@@ -127,37 +129,37 @@
 
 % TODO(Kakadu): lstlisting will be better
 \defverbatim[colored]{\CodeExample}{
-\begin{Verbatim}[commandchars=\\\{\}]
-\textcolor{blue}{string} res = \textcolor{orange}{""};
-\textcolor{blue}{for}(i = 0; i < l; i++) \{
-  res = \textcolor{orange}{"()"} + res;
-\}
-\end{Verbatim}
+    \begin{Verbatim}[commandchars=\\\{\}]
+        \textcolor{blue}{string} res = \textcolor{orange}{""};
+        \textcolor{blue}{for}(i = 0; i < l; i++) \{
+        res = \textcolor{orange}{"()"} + res;
+        \}
+    \end{Verbatim}
 }
 
 \begin{frame}%[fragile]
     \frametitle{Новый алгоритм}
     \framesubtitle{Иллюстративные возможности: таблицы, картинки, код}
     % Задается ширина столбцов
-\begin{columns}[T]
-  \begin{column}[t]{.4\textwidth}
-     \begin{minipage}{2in} \CodeExample         \end{minipage}
-     Аппроксимация:\\
-          \includegraphics[width=2.5cm]{figures/in3.pdf}
+    \begin{columns}[T]
+        \begin{column}[t]{.4\textwidth}
+            \begin{minipage}{2in} \CodeExample         \end{minipage}
+            Аппроксимация:\\
+            \includegraphics[width=2.5cm]{figures/in3.pdf}
 
-          Грамматика:
-          {\begin{align*}
-          start& & &\Coloneq & &s \\
-          s & & &\Coloneq & &\mbox{\texttt{LBR }} s \mbox{\texttt{ RBR }} s \\
-          s & & &\Coloneq & &\varepsilon
-          \end{align*}}
-  \end{column}
-%\hspace{1cm}
-  \begin{column}[T]{.6\textwidth}
-  \vspace{-2em}
-  \includegraphics[width=1\textwidth]{figures/out3.pdf}
-  \end{column}
-\end{columns}
+            Грамматика:
+            {\begin{align*}
+                start& & &\Coloneq & &s \\
+                s & & &\Coloneq & &\mbox{\texttt{LBR }} s \mbox{\texttt{ RBR }} s \\
+                s & & &\Coloneq & &\varepsilon
+            \end{align*}}
+        \end{column}
+        %\hspace{1cm}
+        \begin{column}[T]{.6\textwidth}
+            \vspace{-2em}
+            \includegraphics[width=1\textwidth]{figures/out3.pdf}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -238,14 +240,14 @@
     \begin{align*}
         \MoveEqLeft \lim_{\bigtriangleup t \to 0^+}\int_{\bigtriangleup t}^{T} \! \int_{\Omega} \! D(t_1,x) \frac{\varphi(t_1-\bigtriangleup t,x)-\varphi(t_1,x)}{(-\bigtriangleup t)} \, \mathrm{d}x \, \mathrm{d}t_1 \\
         &= \lim_{\bigtriangleup t \to 0^+} \int_{0}^{T} \! \int_{\Omega} \! D(t_1,x) \frac{\varphi(t_1-\bigtriangleup t,x)-\varphi(t_1,x)}{(-\bigtriangleup t)} \chi_{(\bigtriangleup t,T)}(t_1) \, \mathrm{d}x \, \mathrm{d}t_1 \\
-        &=\int_{0}^{T} \! \int_{\Omega} \! D(t_1,x) \frac{\partial \varphi}{\partial t_1} (t_1,x) \, \mathrm{d}x \, \mathrm{d}t_1 .
+        &=\int_{0}^{T} \! \int_{\Omega} \! D(t_1,x) \frac{\partial \varphi}{\partial t_1} (t_1,x) \, \mathrm{d}x \, \mathrm{d}t_1
     \end{align*}
 \end{frame}
 
 \begin{frame}
     \frametitle{Второй дополнительный слайд}
     \begin{itemize}
-        \item Много дополнительных слайдов не надо: 1--2 вполне достаточно в большинстве случаев
+        \item Много дополнительных слайдов не надо: 1--2~вполне достаточно в большинстве случаев
         \item Кроме формул здесь могут быть схемы, рисунки, таблицы и другие вспомогательные материалы
     \end{itemize}
 

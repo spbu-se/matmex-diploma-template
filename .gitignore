@@ -10,6 +10,7 @@
 *.pag
 *.toc
 *.xdv
+*.pyg
 /vkr.pdf
 /talk.pdf
 *.dvi

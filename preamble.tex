@@ -38,7 +38,6 @@
 \newcommand{\GitHub}{\textsc{GitHub}}
 \newcommand{\SMT}{\textsc{SMT}}
 
-
 \definecolor{eclipseGreen}{RGB}{63,127,95}
 % \lstdefinelanguage{ocaml}{
 % keywords={@type, function, fun, let, in, match, with, when, class, type,
@@ -56,11 +55,6 @@
 % morecomment=[s]{(*}{*)}
 % }
 
-\usepackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
-\usepackage{totcount}
-\usepackage{setspace}
-\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
-
 \makeatletter
 \@ifclassloaded{beamer}{
     %%% Обязательные пакеты
@@ -77,6 +71,9 @@
     \setmonofont{CMU Typewriter Text}
     %\setmonofont{Fira Code}[Contextuals=Alternate,Scale=0.9]
     %\setmonofont{Inconsolata}
+    \usepackage{polyglossia}
+    \setmainlanguage{russian}
+    \setotherlanguage{english}
 
     %% Графика
     \usepackage{pdfpages} % Позволяет вставлять многостраничные pdf документы в текст
@@ -90,4 +87,9 @@
 }
 {}
 \makeatother
+
+\usepackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
+\usepackage{totcount}
+\usepackage{setspace}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
 

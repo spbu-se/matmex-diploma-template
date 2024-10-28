@@ -7,49 +7,48 @@
 \newcommand\myvertcelll[1]{\multirowcell{4}{\myvert{#1}}}
 \newcommand\myvertcellN[2]{\multirowcell{#1}{\myvert{#2}}}
 
-
 \afterpage{%
     \clearpage% Flush earlier floats (otherwise order might not be correct)
     \thispagestyle{empty}% empty page style (?)
     \begin{landscape}% Landscape page
         \centering % Center table
 
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
-%& \multicolumn{17}{c|}{} \\ \hline
-\multirowcell{2}{Код модуля \\в составе \\ дисциплины,\\практики и т.п. }
-  &\myvertcellN{2}{Трудоёмкость\quad}
-  & \multicolumn{10}{c|}{\tiny{Контактная работа обучающихся с преподавателем}}
-  & \multicolumn{5}{c|}{\tiny{Самостоятельная работа}}
-  & \myvertcellN{2}{\tiny Объем активных и интерактивных\quad}
-  \\ \cline{3-17}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+            %& \multicolumn{17}{c|}{} \\ \hline
+            \multirowcell{2}{Код модуля \\в составе \\ дисциплины,\\практики и т.п. }
+            &\myvertcellN{2}{Трудоёмкость\quad}
+            & \multicolumn{10}{c|}{\tiny{Контактная работа обучающихся с преподавателем}}
+            & \multicolumn{5}{c|}{\tiny{Самостоятельная работа}}
+            & \myvertcellN{2}{\tiny Объем активных и интерактивных\quad}
+            \\ \cline{3-17}
 
-&& \myvertcellN{2}{лекции\quad}
-    &\myvertcellN{2}{семинары\quad}
-    &\myvertcellN{2}{консультации\quad}
-    &\myvertcellN{2}{\small практические  занятия\quad}
-    &\myvertcellN{2}{\small лабораторные работы\quad}
-    &\myvertcellN{2}{\small контрольные работы\quad}
-    &\myvertcellN{2}{\small коллоквиумы\quad}
-    &\myvertcellN{2}{\small текущий контроль\quad}
-    &\myvertcellN{2}{\small промежуточная аттестация\quad}
-    &\myvertcellN{2}{\small итоговая аттестация\quad}
+            && \myvertcellN{2}{лекции\quad}
+            &\myvertcellN{2}{семинары\quad}
+            &\myvertcellN{2}{консультации\quad}
+            &\myvertcellN{2}{\small практические  занятия\quad}
+            &\myvertcellN{2}{\small лабораторные работы\quad}
+            &\myvertcellN{2}{\small контрольные работы\quad}
+            &\myvertcellN{2}{\small коллоквиумы\quad}
+            &\myvertcellN{2}{\small текущий контроль\quad}
+            &\myvertcellN{2}{\small промежуточная аттестация\quad}
+            &\myvertcellN{2}{\small итоговая аттестация\quad}
 
-    &\myvertcellN{2}{\tiny под руководством    преподавателя\quad}
-    &\myvertcellN{2}{\tiny в присутствии     преподавателя\quad}
-    &\myvertcellN{2}{\tiny с использованием    методических\quad}
-    &\myvertcellN{2}{\small текущий контроль\quad}
-    &\myvertcellN{2}{\makecell{\small промежуточная \\ аттестация}}
-    &     \\
-&& &&&&&&&&& &&&&&&\\
-&& &&&&&&&&& &&&&&&\\
-&& &&&&&&&&& &&&&&&\\
-&&&&&&&&&&& &&&&&&\\
-&&&&&&&&&&& &&&&&&\\
-&&&&&&&&&&& &&&&&&\\ \hline
-Семестр 3 & 2 &30  &&&&&&&&2   & &&&18 &&20 &10\\ \hline
-          &   &2--42&&&&&&&&2--25& &&&1--1&&1--1&\\ \hline
-Итого     & 2 &30  &&&&&&&&2   & &&&18 &&20 &10\\ \hline
-\end{tabular}
+            &\myvertcellN{2}{\tiny под руководством    преподавателя\quad}
+            &\myvertcellN{2}{\tiny в присутствии     преподавателя\quad}
+            &\myvertcellN{2}{\tiny с использованием    методических\quad}
+            &\myvertcellN{2}{\small текущий контроль\quad}
+            &\myvertcellN{2}{\makecell{\small промежуточная \\ аттестация}}
+            &     \\
+            && &&&&&&&&& &&&&&&\\
+            && &&&&&&&&& &&&&&&\\
+            && &&&&&&&&& &&&&&&\\
+            &&&&&&&&&&& &&&&&&\\
+            &&&&&&&&&&& &&&&&&\\
+            &&&&&&&&&&& &&&&&&\\ \hline
+            Семестр 3 & 2 &30  &&&&&&&&2   & &&&18 &&20 &10\\ \hline
+            &   &2--42&&&&&&&&2--25& &&&1--1&&1--1&\\ \hline
+            Итого     & 2 &30  &&&&&&&&2   & &&&18 &&20 &10\\ \hline
+        \end{tabular}
 
         \captionof{table}{Если таблица очень большая, то можно её изобразить на отдельной портретной странице. Не забудьте подробное описание, чтобы содержимое таблицы можно было понять не читая весь текст.}
     \end{landscape}
