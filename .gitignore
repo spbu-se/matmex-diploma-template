@@ -1,0 +1,27 @@
+*.bak
+*.log
+*.out
+*.aux
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.pag
+*.toc
+*.xdv
+*.pyg
+/vkr.pdf
+/talk.pdf
+*.dvi
+*.fls
+/.aspell*
+*.synctex.gz
+*.fdb_latexmk
+_minted-*
+
+/*.pdf
+
+# Tex Studio files
+*.txss2
+
