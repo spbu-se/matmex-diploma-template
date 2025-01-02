@@ -7,8 +7,8 @@ ENGINE ?= xelatex # Only `xelatex` or `lualatex` are allowed here
 
 all: $(VKR).pdf $(TALK).pdf
 
-%.pdf: %.tex
-	latexmk -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape $^
+%.pdf: %.tex %.bib *.tex
+	latexmk -$(ENGINE) -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape $<
 
 clean:
 	latexmk -c $(VKR).tex $(TALK).tex
