@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.7.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: Set up Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - run: sudo apt-get update
       - run: make depext-deb
@@ -20,13 +20,13 @@ jobs:
         run: make talk.pdf
 
       - name: Upload PDF VKR file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: VKR
           path: vkr.pdf
 
       - name: Upload PDF talk file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: talk
           path: talk.pdf
