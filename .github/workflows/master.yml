@@ -20,13 +20,13 @@ jobs:
         run: make talk.pdf
 
       - name: Upload PDF VKR file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: VKR
           path: vkr.pdf
 
       - name: Upload PDF talk file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: talk
           path: talk.pdf
